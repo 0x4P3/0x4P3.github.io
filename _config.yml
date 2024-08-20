@@ -16,10 +16,10 @@ timezone:
 
 title: 0x4P3 # the main title
 
-tagline: Malware Stuffs # it will display as the sub-title
+tagline: APE WITH INTERNET # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Venus Chhantel - Malware - Reverse Engineering - Malware Analysis - Config Extractor - Reversing - Malware Internals - Sigma - YARA
+  Venus Chhantel - Malware - Reverse Engineering - Malware Analysis - Config Extractor - Reversing - Malware Internals - Sigma - YARA - Malware Development
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
 url: ""
