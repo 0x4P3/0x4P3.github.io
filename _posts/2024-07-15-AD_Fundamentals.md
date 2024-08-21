@@ -183,30 +183,3 @@ Group Policy settings are created and edited using Group Policy Object Editor.
 
 <br>
 
-In AD environment, the availability of resource sharing is goverened by trust. ***Trust*** is secure authenticated communication bridge between domain/forest.
-
-Additionally trust can be categorized as following:   
-
-- Based on direction
-    - One-way
-        - Provide access from trusted domain to trusting domain.
-        - Trust direction will be opposite to access direction.
-
-        ![One-way Trust](/images/2024-07-15-AD:Fundamentals/6.png)
-
-    - Two-way
-        - Provide access to both trusting partner domain.
-        - Both access and trust direction is bi-directional.
-- Based on characteristics
-    - Transitive
-        - Trust extends beyond domain any other domain that trusting partner domain trusts.
-    - Non-transitive
-        - Trust exist only between two trusting partner domain
-
-<br>
-
-When trust is created, SID filtering is enabled by default. ***SID filtering*** is a security mechanism that filter out any SID from user’s Acces Token that are not part of trusted domain to ensure only SID from trusted domain are used while accessing a resource over a trust.
-
-- If a user is member of five group, it will recieve a SID for each of those five groups. The SID that are not part of trusted domain gets removed by SID filtering when that user try to access resource over a trust.
-
-Whenever user access resource over trust, the user SID will be added to ***Foreign Security Principals***, which is represents security principals from foreign another domain.
