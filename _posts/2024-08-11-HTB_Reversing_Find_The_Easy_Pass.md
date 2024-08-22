@@ -2,7 +2,7 @@
 layout:	post
 title:  "Find The Easy Pass"
 date:   2024-08-11 04:11:11 +0200
-categories: [HTB Track - Reversing]
+categories: [HTB Track, Intro to Reversing]
 tags: [HTB]
 ---
 

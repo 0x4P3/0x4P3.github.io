@@ -2,7 +2,7 @@
 layout:	post
 title:  "Baby RE"
 date:   2024-08-11 01:11:11 +0200
-categories: [HTB Track - Reversing]
+categories: [HTB Track, Intro to Reversing]
 tags: [HTB]
 ---
 

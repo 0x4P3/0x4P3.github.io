@@ -2,7 +2,7 @@
 layout:	post
 title:  "Baby  Crypt"
 date:   2024-08-11 03:11:11 +0200
-categories: [HTB Track - Reversing]
+categories: [HTB Track, Intro to Reversing]
 tags: [HTB]
 ---
 

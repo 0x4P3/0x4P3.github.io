@@ -2,7 +2,7 @@
 layout:	post
 title:  "IRCWare"
 date:   2024-08-11 06:11:11 +0200
-categories: [HTB Track - Reversing]
+categories: [HTB Track, Intro to Reversing]
 tags: [HTB]
 ---
 

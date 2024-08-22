@@ -2,7 +2,7 @@
 layout:	post
 title:  "Exatlon"
 date:   2024-08-11 09:11:11 +0200
-categories: [HTB Track - Reversing]
+categories: [HTB Track, Intro to Reversing]
 tags: [HTB]
 ---
 

@@ -2,7 +2,7 @@
 layout:	post
 title:  "You Cant C Me"
 date:   2024-08-11 02:11:11 +0200
-categories: [HTB Track - Reversing]
+categories: [HTB Track, Intro to Reversing]
 tags: [HTB]
 ---
 
