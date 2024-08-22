@@ -5,11 +5,11 @@ date:   2024-08-22 11:11:11 +0200
 tags: [PE]
 ---
 
-## PE Header: DOS Header
+## PE Header: MS DOS Header
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/1.jpg)
 
-The PE file format starts with DOS header. The DOS header has been part of PE file format since v2 of MS-DOS operating system, but still have been kept for backward compatibility. 
+The PE file format starts with MS DOS header. The MS DOS header has been part of PE file format since v2 of MS-DOS operating system, but still have been kept for backward compatibility. 
 
 **Example:** If older OS like MS-DOS tries to load newer executable, the system will output error message from MS DOS Stub to prevent crash. The MS DOS Stub will be covered in next section. 
 
