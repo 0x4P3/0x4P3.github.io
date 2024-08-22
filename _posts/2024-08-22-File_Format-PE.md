@@ -53,7 +53,7 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 ## PE Structures 
 
-Soon..
+[PE Header: MS DOS Header, MS DOS Stub & Rich Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-I/)
 
 <br>
 
