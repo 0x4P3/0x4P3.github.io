@@ -1,7 +1,8 @@
 ---
 layout:	post
-title:  "PE Header: MS DOS Header, MS DOS Stub & Rich Header"
+title:  "(II) PE Header: MS DOS Header, MS DOS Stub & Rich Header"
 date:   2024-08-22 11:11:11 +0200
+categories: [Portable Executable (PE)]
 tags: [PE]
 ---
 
