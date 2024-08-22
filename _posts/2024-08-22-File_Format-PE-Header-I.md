@@ -5,7 +5,7 @@ date:   2024-08-22 11:11:11 +0200
 tags: [PE]
 ---
 
-## PE Header: MS DOS Header
+## MS DOS Header
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/1.jpg)
 
@@ -57,7 +57,7 @@ Also, the `e_lfanew` can be seen as ‘File address of new exe header’, which 
 
 <br>
 
-## PE Header: MS DOS Stub 
+## MS DOS Stub 
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/3.jpg)
 
@@ -69,7 +69,7 @@ The message is `This program cannot be run in DOS mode.` , which can be seen in 
 
 <br>
 
-## PE Header: Rich Header
+## Rich Header
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/5.jpg)
 
@@ -93,4 +93,4 @@ The XOR decryption and parsing of the decrypted values is done automatically by 
 
 ![PE-Bear](/images/2024-08-22-File_Format-PE-Header-I/8.jpg)
 
-All the metadata like ProductId, BuildId, use Count and Visual Studio version can be seen.
+All the metadata like ProductId, BuildId, use Count and Visual Studio version can be seen above.
