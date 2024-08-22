@@ -89,6 +89,8 @@ Using the XOR key as `0xFBBD959B` , the XORed encrypted value is decrypted using
 
 In the decrypted content, the `DanS` signature can be seen. Following it contain the metadata mentioned above.
 
-The XOR decryption and parsing of the decrypted values is done automatically by PE-Bear, which can be seen below. Again, note that the values are in little-endian.
+The XOR decryption and parsing of the decrypted values is done automatically by PE-Bear, which can be seen below. Again, note that the hex values are in little-endian.
 
 ![PE-Bear](/images/2024-08-22-File_Format-PE-Header-I/8.jpg)
+
+All the metadata like ProductId, BuildId, use Count and Visual Studio version can be seen.
