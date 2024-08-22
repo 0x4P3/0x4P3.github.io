@@ -1,0 +1,72 @@
+---
+layout:	post
+title:  "(I) PE: Overview"
+date:   2024-08-15 11:11:11 +0200
+categories: [File Formats, PE]
+tags: [PE]
+---
+
+## Getting Started
+
+A deep understanding of the PE file format is fundamental from Windows malware analyst perspective, as it serves as the foundation for analyzing Windows binaries. In this blog series, I will provide an in-depth breakdown of the PE file format, along with some practical tips to help in your malware analysis.
+
+If you want to follow along, the tools that I will be using on this blog series are:
+
+- PEview
+- PE-bear
+- HxD
+- CyberChef
+
+<br>
+
+## PE Overview
+
+The PE stands for Portable Executable, which is a standard file format for most Windows binaries, including:
+
+- Executables (.exe)
+- Dynamic Link Libraries (.dll)
+- Screen Saver (.scr)
+- Control Panel (.cpl)
+- System File (.sys)
+- Kernel Driver (.drv)
+- Kernel Modules (.srv)
+
+The PE file format is derived from Common Object File Format (COFF). And, the PE file format specifies the necessary information required by OS loader to load the binary in memory and execute it.
+
+<br>
+
+## PE Structure Overview
+
+The PE file format is organized as linear steam of data consisting of a header followed by many sections. The PE file format is illustrated in the image below.
+
+![PE Illustration](/images/2024-02-13-Reversing-Malware-Internals-DarkGate/20.png)
+
+This above structure can be seen following in PE-bear tool. Each of those PE structure will be covered in the next section.
+
+![PE-bear](/images/2024-02-13-Reversing-Malware-Internals-DarkGate/20.png)
+
+<br>
+
+## PE Structures 
+
+
+
+<br>
+
+## Additional
+
+
+
+<br>
+
+## References
+
+[PE Format - Win32 apps | Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format)
+
+[2013 Day1P1 Life of Binaries: Intro (youtube.com)](https://www.youtube.com/watch?v=ls8I__h1IYE&list=PLUFkSN0XLZ-n_Na6jwqopTt1Ki57vMIc3)
+
+[A dive into the PE file format - Introduction - 0xRick’s Blog](https://0xrick.github.io/win-internals/pe1/)
+
+[Portable Executable File Format (kowalczyk.info)](https://blog.kowalczyk.info/articles/pefileformat.html)
+
+[Introduction to the PE file format | Cyberdough (skr1x.github.io)](https://skr1x.github.io/portable-executable-format/#pe-parser)
