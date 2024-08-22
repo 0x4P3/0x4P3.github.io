@@ -13,7 +13,6 @@ A deep understanding of the PE file format is fundamental from Windows malware a
 If you want to follow along, the tools that I will be using on this blog series are:
 
 - PE-bear
-- HxD
 - CyberChef
 
 <br>
@@ -66,7 +65,6 @@ PE Parser
 
 [A dive into the PE file format - Introduction - 0xRick’s Blog](https://0xrick.github.io/win-internals/pe1/)
 
-[Portable Executable File Format (kowalczyk.info)](https://blog.kowalczyk.info/articles/pefileformat.html)
-
 [Introduction to the PE file format | Cyberdough (skr1x.github.io)](https://skr1x.github.io/portable-executable-format/#pe-parser)
 
+[Portable Executable File Format (kowalczyk.info)](https://blog.kowalczyk.info/articles/pefileformat.html)
