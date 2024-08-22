@@ -49,13 +49,13 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 ## PE Structures 
 
-
+Soon..
 
 <br>
 
 ## Additional
 
-
+PE Parser
 
 <br>
 
