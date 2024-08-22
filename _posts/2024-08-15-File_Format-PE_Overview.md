@@ -17,11 +17,10 @@ If you want to follow along, the tools that I will be using on this blog series 
 
 Lets now get our hand dirty.
 
-<div style="text-align:center;">
-  <a href="https://giphy.com/gifs/1TzKVQwH820wM">
-    <img src="https://media.giphy.com/media/1TzKVQwH820wM/giphy.gif" style="max-width:100%; height:auto;" />
-  </a>
-</div>
+<center>
+  [![GIF](https://media.giphy.com/media/1TzKVQwH820wM/giphy.gif)](https://giphy.com/gifs/1TzKVQwH820wM)
+</center>
+
 
 <br>
 
