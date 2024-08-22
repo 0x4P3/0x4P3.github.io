@@ -1,7 +1,7 @@
 ---
 layout:	post
 title:  "Portable Executable (PE) File Format"
-date:   2024-08-15 11:11:11 +0200
+date:   2024-08-22 11:11:11 +0200
 categories: [File Formats, Portable Executable (PE)]
 tags: [PE]
 ---
@@ -43,11 +43,11 @@ The PE file format is derived from Common Object File Format (COFF). And, the PE
 
 The PE file format is organized as linear steam of data consisting of a header followed by many sections. The PE file format is illustrated in the image below.
 
-![PE Illustration](/images/2024-08-15-File_Format-PE_Overview/PE.jpg)
+![PE Illustration](/images/2024-08-22-File_Format-PE/PE.jpg)
 
 This above structure can be seen following in PE-bear tool. Each of those PE structure will be covered in the next section.
 
-![PE-bear](/images/2024-08-15-File_Format-PE_Overview/PE-bear.png)
+![PE-bear](/images/2024-08-22-File_Format-PE/PE-bear.png)
 
 <br>
 
