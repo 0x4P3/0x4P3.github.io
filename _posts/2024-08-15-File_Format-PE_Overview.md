@@ -17,10 +17,9 @@ If you want to follow along, the tools that I will be using on this blog series 
 
 Lets now get our hand dirty.
 
-<center>
-  [![GIF](https://media.giphy.com/media/1TzKVQwH820wM/giphy.gif)](https://giphy.com/gifs/1TzKVQwH820wM)
-</center>
-
+<div style="text-align: center;">
+  <img src="https://media.giphy.com/media/1TzKVQwH820wM/giphy.gif" alt="GIF" style="max-width: 100%; height: auto;">
+</div>
 
 <br>
 
