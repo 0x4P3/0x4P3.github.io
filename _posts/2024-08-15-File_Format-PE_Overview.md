@@ -1,8 +1,8 @@
 ---
 layout:	post
-title:  "PE File Format"
+title:  "Portable Executable (PE)"
 date:   2024-08-15 11:11:11 +0200
-categories: [File Formats, PE]
+categories: [File Formats, PE File Format]
 tags: [PE]
 ---
 
