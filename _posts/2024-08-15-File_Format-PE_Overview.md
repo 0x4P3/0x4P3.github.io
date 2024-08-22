@@ -15,6 +15,10 @@ If you want to follow along, the tools that I will be using on this blog series 
 - PE-bear
 - CyberChef
 
+Lets now get our hand dirty.
+
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/1TzKVQwH820wM" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/1TzKVQwH820wM">via GIPHY</a></p>
+
 <br>
 
 ## PE Overview
@@ -59,12 +63,12 @@ PE Parser
 
 ## References
 
-[PE Format - Win32 apps | Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format) 
+[PE Format - Win32 apps - Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format) 
 
 [2013 Day1P1 Life of Binaries: Intro (youtube.com)](https://www.youtube.com/watch?v=ls8I__h1IYE&list=PLUFkSN0XLZ-n_Na6jwqopTt1Ki57vMIc3)  
 
 [A dive into the PE file format - Introduction - 0xRick’s Blog](https://0xrick.github.io/win-internals/pe1/)  
 
-[Introduction to the PE file format | Cyberdough (skr1x.github.io)](https://skr1x.github.io/portable-executable-format/#pe-parser)  
+[Introduction to the PE file format - Cyberdough (skr1x.github.io)](https://skr1x.github.io/portable-executable-format/#pe-parser)  
 
 [Portable Executable File Format (kowalczyk.info)](https://blog.kowalczyk.info/articles/pefileformat.html)
