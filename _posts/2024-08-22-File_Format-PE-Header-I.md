@@ -42,7 +42,7 @@ typedef struct _IMAGE_DOS_HEADER {      // DOS .EXE header
 The important ones from the above structure are:
 
 - `e_magic`: It is 2-byte value that points to the magic number, i.e. `MZ` or `0x4D5A`. So it is also referred as MZ header.
-- `e_lfanew`: It is a 4-byte value that points to the offset of `PE` or `0x5045` (Signature of NT Header). When OS loader tries to load and execute a PE file, it checks this value to ensure that its a valid PE file. Also this value help OS loader to locate the starting offset of NT Header, which holds other crucial information.
+- `e_lfanew`: It is a 4-byte value that points to the offset of `PE` or `0x5045` (Signature of NT Header). When OS loader tries to load and execute a PE file, it checks the value at this offset to ensure that its a valid PE file. Also this value help OS loader to locate the starting offset of NT Header, which holds other crucial information.
 
 Lets now verify with PE-Bear. You can load `C:\Windows\System32\calc.exe` in the PE-Bear to follow along.
 
