@@ -17,7 +17,7 @@ If you want to follow along, the tools that I will be using on this blog series 
 
 Lets now get our hand dirty.
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/1TzKVQwH820wM" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/1TzKVQwH820wM">via GIPHY</a></p>
+[![GIF](https://media.giphy.com/media/1TzKVQwH820wM/giphy.gif)](https://giphy.com/gifs/1TzKVQwH820wM)
 
 <br>
 
