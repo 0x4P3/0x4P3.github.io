@@ -12,7 +12,6 @@ A deep understanding of the PE file format is fundamental from Windows malware a
 
 If you want to follow along, the tools that I will be using on this blog series are:
 
-- PEview
 - PE-bear
 - HxD
 - CyberChef
@@ -43,7 +42,7 @@ The PE file format is organized as linear steam of data consisting of a header f
 
 This above structure can be seen following in PE-bear tool. Each of those PE structure will be covered in the next section.
 
-![PE-bear](/images/2024-08-15-File_Format-PE_Overview/PE bear.png)
+![PE-bear](/images/2024-08-15-File_Format-PE_Overview/PE-bear.png)
 
 <br>
 
