@@ -71,14 +71,6 @@ Lets check the File Header in PE-Bear.
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/5.png)
 
-- The `Machine` value is `0x8664`, which is translated by PE-Bear as AMD64.
-- The `NumberOfSections` value is ***6***, which are .text, .rdata, .data, .pdata, .rsrc and .reloc.
-- The `TimeDateStamp` value is ***0x340C410***, which is in EPOC format. This value is also translated by PE-Bear into UTC format.
-- The `SizeOfOptionalHeader` value is ***240***.
-- The `Characteristics` value is `0x22`, i.e., `0x2` for `IMAGE_FILE_EXECUTABLE_IMAGE` and `0x20` for `IMAGE_FILE_LARGE_ADDRESS_ AWARE` , which is also translated by PE-Bear.
-
-<br>
-
 ### Optional Header
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-II/6.png)
@@ -179,7 +171,7 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
         - During analyzing malware, we can disable ASLR feature to make the analysis easier. We can disabled the ASLR using CFF Explorer.
             - NtHeaders > OptionalHeader > DllCharacteristics > Uncheck ‘DLL can move’
             
-            ![image.png](/images/2024-08-23-File_Format-PE-Header-II/7.png)
+            ![CFF Explorer](/images/2024-08-23-File_Format-PE-Header-II/7.png)
             
     - `IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY`: Its value is `0x80`, which checks if digitally signed hash matched at load time.
     - `IMAGE_DLLCHARACTERISTICS_NX_COMPAT`: Its value is `0x100`, which enables DEP that make sure that code are not executed from non-executable memory locations.
@@ -206,3 +198,8 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
     ```
     
     - Important data structures will be covered in next blog.
+
+
+Lets check the Optional Header in PE-Bear.
+
+![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/8.png)
