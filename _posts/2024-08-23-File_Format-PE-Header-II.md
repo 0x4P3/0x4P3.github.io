@@ -1,7 +1,7 @@
 ---
 layout:	post
 title:  "(III) PE Header: NT Header"
-date:   2024-08-23 11:11:11 +0200
+date:   2024-08-23 07:11:11 +0200
 categories: [Portable Executable (PE)]
 tags: [PE]
 ---
