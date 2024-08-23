@@ -38,6 +38,8 @@ Lets now understand those components of NT Header.
 
 <br>
 
+---
+
 ### Signature
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-II/2.png)
