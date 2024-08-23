@@ -161,3 +161,48 @@ The Optional Header is the one that helps OS loader to determine whether the PE 
     ```
 
 Lets now focus on the important ones:
+
+Lets now focus on the important ones. Other are documented here: [PE Format - Optional Header](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#optional-header-image-only)
+
+- `Magic` :  This field value specified whether the PE file is 32-bit/64-bit. So with this value, the OS loader determines if the PE file is 32-bit/64-bit.
+    - For 32-bit (PE32), the value is `0x10B` .
+    - For 64-bit (PE32+), the value is `0x20B`.
+- `AddressOfEntryPoint`:  This field value specifies the RVA (Relative Virtual Address) of entry point. The RVA are relative to starting address.
+- `ImageBase`:  This field value specifies the preferred virtual address of first byte of binary when loaded in memory.
+    - Nowadays, security mechanism called ASLR (Address Space Layout Randomization) is enabled, which randomizes the address where binary are loaded into memory. This renders this field useless. Each time, the binary are loaded at different address.
+- `SubSystem`:  This field value specifies the subsystem required to run the binary. When triaging a malware, we can know if the malware will have GUI or CLI and prepare accordingly.
+    - For `IMAGE_SUBSYSTEM_WINDOWS_GUI`, its value is `0x2`.
+    - For `IMAGE_SUBSYSTEM_WINDOWS_CUI`, its value is `0x3`.
+    - Other subsystem are documented here: [PE Format - Subsystem](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#windows-subsystem)
+- `DLLCharacteristics`: This field values specifies the characteristics of the PE file. Lets focus some important ones:
+    - `IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE`: Its value is `0x40`, which enables ASLR that randomizes address where binary loads.
+        - During analyzing malware, we can disable ASLR feature to make the analysis easier. We can disabled the ASLR using CFF Explorer.
+            - NtHeaders > OptionalHeader > DllCharacteristics > Uncheck ‘DLL can move’
+            
+            ![image.png](/images/2024-08-23-File_Format-PE-Header-II/7.png)
+            
+    - `IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY`: Its value is `0x80`, which checks if digitally signed hash matched at load time.
+    - `IMAGE_DLLCHARACTERISTICS_NX_COMPAT`: Its value is `0x100`, which enables DEP that make sure that code are not executed from non-executable memory locations.
+    - Other DLLCharacteristics are documented here: [PE Format - DllCharacteristics](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#dll-characteristics)
+- `DataDirectory` : This field value store array that store pointers from all other data structures, which are:
+    
+    ```c
+    #define IMAGE_DIRECTORY_ENTRY_EXPORT          0   // Export Directory
+    #define IMAGE_DIRECTORY_ENTRY_IMPORT          1   // Import Directory
+    #define IMAGE_DIRECTORY_ENTRY_RESOURCE        2   // Resource Directory
+    #define IMAGE_DIRECTORY_ENTRY_EXCEPTION       3   // Exception Directory
+    #define IMAGE_DIRECTORY_ENTRY_SECURITY        4   // Security/Certificate Directory
+    #define IMAGE_DIRECTORY_ENTRY_BASERELOC       5   // Base Relocation Table
+    #define IMAGE_DIRECTORY_ENTRY_DEBUG           6   // Debug Directory
+    #define IMAGE_DIRECTORY_ENTRY_ARCHITECTURE    7   // Architecture Specific Data (reserved 0)
+    #define IMAGE_DIRECTORY_ENTRY_GLOBALPTR       8   // RVA of GP
+    #define IMAGE_DIRECTORY_ENTRY_TLS             9   // TLS Directory
+    #define IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG    10   // Load Configuration Directory
+    #define IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT   11   // Bound Import Directory in headers
+    #define IMAGE_DIRECTORY_ENTRY_IAT            12   // Import Address Table
+    #define IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT   13   // Delay Load Import Descriptors
+    #define IMAGE_DIRECTORY_ENTRY_CLR_DESCRIPTOR 14   // CLR Runtime descriptor
+    //Reserved must be 0                         15
+    ```
+    
+    - Important data structures will be covered in next blog.
