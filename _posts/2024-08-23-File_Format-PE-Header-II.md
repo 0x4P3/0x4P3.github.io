@@ -6,6 +6,7 @@ categories: [Portable Executable (PE)]
 tags: [PE]
 ---
 
+---
 
 ## NT Header
 
@@ -203,3 +204,5 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
 Lets check the Optional Header in PE-Bear.
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/8.png)
+
+---

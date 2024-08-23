@@ -6,6 +6,8 @@ categories: [Portable Executable (PE)]
 tags: [PE]
 ---
 
+---
+
 ## MS DOS Header
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/1.jpg)
@@ -58,6 +60,10 @@ Also, the `e_lfanew` can be seen as ‘File address of new exe header’, which 
 
 <br>
 
+---
+
+<br>
+
 ## MS DOS Stub 
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/3.jpg)
@@ -67,6 +73,10 @@ As mentioned above, if older OS like MS-DOS tries to load newer executable, the 
 The message is `This program cannot be run in DOS mode.` , which can be seen in PE-Bear below.
 
 ![PE-Bear](/images/2024-08-22-File_Format-PE-Header-I/4.jpg)
+
+<br>
+
+---
 
 <br>
 
@@ -95,3 +105,5 @@ The XOR decryption and parsing of the decrypted values is done automatically by 
 ![PE-Bear](/images/2024-08-22-File_Format-PE-Header-I/8.jpg)
 
 All the metadata like ProductId, BuildId, use Count and Visual Studio version can be seen above.
+
+---
