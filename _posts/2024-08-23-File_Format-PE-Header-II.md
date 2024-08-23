@@ -50,6 +50,8 @@ This value helps OS loader to determine that the file is a PE file.
 
 <br>
 
+---
+
 ### File Header
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-II/4.png)
@@ -71,6 +73,10 @@ Lets now focus on the important ones:
 Lets check the File Header in PE-Bear.
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/5.png)
+
+<br>
+
+---
 
 ### Optional Header
 
@@ -204,5 +210,7 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
 Lets check the Optional Header in PE-Bear.
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/8.png)
+
+<br>
 
 ---

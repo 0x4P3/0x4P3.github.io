@@ -6,6 +6,8 @@ categories: [File Formats, Portable Executable (PE)]
 tags: [PE]
 ---
 
+---
+
 ## Getting Started
 
 A deep understanding of the PE file format is fundamental from Windows malware analyst perspective, as it serves as the foundation for analyzing Windows binaries. In this blog series, I will provide an in-depth breakdown of the PE file format, along with some practical tips to help in your malware analysis.
@@ -23,6 +25,8 @@ Lets now get our hand dirty.
 
 <br>
 
+---
+
 ## PE Overview
 
 The PE stands for Portable Executable, which is a standard file format for most Windows binaries, including:
@@ -39,6 +43,8 @@ The PE file format is derived from Common Object File Format (COFF). And, the PE
 
 <br>
 
+---
+
 ## PE Structure Overview
 
 The PE file format is organized as linear steam of data consisting of a header followed by many sections. The PE file format is illustrated in the image below.
@@ -51,6 +57,8 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 <br>
 
+---
+
 ## PE Structures 
 
 [PE Header: MS DOS Header, MS DOS Stub & Rich Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-I/)
@@ -59,11 +67,15 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 <br>
 
+---
+
 ## Additional
 
 PE Parser
 
 <br>
+
+---
 
 ## References
 
@@ -76,3 +88,7 @@ PE Parser
 [Introduction to the PE file format - Cyberdough (skr1x.github.io)](https://skr1x.github.io/portable-executable-format/#pe-parser)  
 
 [Portable Executable File Format (kowalczyk.info)](https://blog.kowalczyk.info/articles/pefileformat.html)
+
+<br>
+
+---
