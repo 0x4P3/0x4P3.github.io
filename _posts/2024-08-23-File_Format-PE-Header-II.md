@@ -44,7 +44,7 @@ Lets now understand those components of NT Header.
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-II/2.png)
 
-The Signature is a 4 byte value that points to the 0x50450000 or PE\0\0. This can also be seen in the screenshot below from PE-Bear. 
+The Signature is a 4 byte value that points to the `0x50450000` or `PE\0\0`. This can also be seen in the screenshot below from PE-Bear. 
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/3.png)
 
@@ -68,8 +68,8 @@ Lets now focus on the important ones:
 - `SizeOfOptionalHeader`: This field value specifies the size of Optional Header. This is because the Optional Header does not have a fixed size. The Optional Header will be covered in next section.
 - `Characteristics`: This field contain flag that indicates the attribute of PE file. Following one are important characteristics.
     - `IMAGE_FILE_EXECUTABLE_IMAGE`: Its value is `0x2`  which indicates that the PE file is an executable.
-    - `IMAGE_FILE_DLL`: Its value is `2000` which indicates that the PE file is a DLL.
-    - `IMAGE_FILE_LARGE_ADDRESS_ AWARE`: Its value is `20` which indicates that the PE file can handle large address space so that 32-bit binary when executed on 64-bit machine can access up to 4 GB virtual address space instead of usual 2 GB.
+    - `IMAGE_FILE_DLL`: Its value is `0x2000` which indicates that the PE file is a DLL.
+    - `IMAGE_FILE_LARGE_ADDRESS_ AWARE`: Its value is `0x20` which indicates that the PE file can handle large address space so that 32-bit binary when executed on 64-bit machine can access up to 4 GB virtual address space instead of usual 2 GB.
     - All other characteristics are documented here: [PE Format - Characteristics](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#characteristics)
 
 Lets check the File Header in PE-Bear.
