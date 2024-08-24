@@ -199,7 +199,7 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
     - `IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY`: Its value is `0x80`, which checks if digitally signed hash matched at load time.
     - `IMAGE_DLLCHARACTERISTICS_NX_COMPAT`: Its value is `0x100`, which enables DEP that make sure that code are not executed from non-executable memory locations.
     - Other DLLCharacteristics are documented here: [PE Format - DllCharacteristics](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#dll-characteristics)
-- `DataDirectory` : This field value store array that store pointers from all other data structures, which are:
+- `DataDirectory` : This field value are data array that store pointers from all other data structures that are located within one of the section of PE file. Those data structures are listed below.
     
     ```c
     #define IMAGE_DIRECTORY_ENTRY_EXPORT          0   // Export Directory
