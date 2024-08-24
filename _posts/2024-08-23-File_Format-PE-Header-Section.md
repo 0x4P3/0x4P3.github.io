@@ -32,19 +32,6 @@ typedef struct _IMAGE_SECTION_HEADER {
 } IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
 ```
 
-Lets understand the important one. Other are documented here: [PE Format - Section Headers](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#section-table-section-headers)
-
-- `Name`: This field specifies the name of the section and it is maximum 8 characters.
-- `PhysicalAddress` or `VirtualSize`: This field is union that defines multiple names for same thing and specifies the size of section after loaded in memory.
-- `SizeOfRawData`: This field specifies the size of section on disk.
-- `Characteristics`: This field specifies the characteristics of section. Lets discuss some important ones. Other are documented here: [PE Format - Section Charactersitics](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#section-flags)
-    - `IMAGE_SCN_CNT_CODE`: Its value is `0x20`, which indicates the section contains executable code.
-    - `IMAGE_SCN_CNT_INITIALIZED_DATA`: Its value is `0x40` , which indicates the section contains initialized data.
-    - `IMAGE_SCN_CNT_UNINITIALIZED_DATA`: Its value is `0x80` , which indicates the section contains uninitialized data.
-    - `IMAGE_SCN_MEM_EXECUTE`: Its value is `0x20000000`, which indicate the section can be executed as code.
-    - `IMAGE_SCN_MEM_READ`:  Its value is `0x40000000`, which indicate the section can be read.
-    - `IMAGE_SCN_MEM_WRITE`: Its value is `0x80000000`, which indicate the section can be written to.
-
 
 Lets view the Section Header in PE-Bear.
 
