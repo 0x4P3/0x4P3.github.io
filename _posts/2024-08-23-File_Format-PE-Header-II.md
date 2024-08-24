@@ -58,6 +58,20 @@ This value helps OS loader to determine that the file is a PE file.
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-II/4.png)
 
+The File Header is also called “COFF File Header” and its structure is described below, where some of the components are deprecated.
+
+```c
+typedef struct _IMAGE_FILE_HEADER {
+    WORD    Machine;
+    WORD    NumberOfSections;
+    DWORD   TimeDateStamp;
+    DWORD   PointerToSymbolTable; //depricated
+    DWORD   NumberOfSymbols;      //depricated
+    WORD    SizeOfOptionalHeader;
+    WORD    Characteristics;
+} IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;
+```
+
 Lets now focus on the important ones:
 
 - `Machine`: This field value specifies the type of CPU architecture that PE file can execute on.
@@ -206,7 +220,7 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
     //Reserved must be 0                         15
     ```
     
-    - Important data structures will be covered in next blog.
+    - Important data structures will be covered in the next blog.
 
 
 Lets check the Optional Header in PE-Bear.

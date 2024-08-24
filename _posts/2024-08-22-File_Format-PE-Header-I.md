@@ -16,7 +16,7 @@ The PE file format starts with MS DOS header. The MS DOS header has been part of
 
 **Example:** If older OS like MS-DOS tries to load newer executable, the system will output error message from MS DOS Stub to prevent crash. The MS DOS Stub will be covered in next section. 
 
-The DOS header is 64-byte long structure, which is described below.
+The MS DOS header is 64-byte long structure, which is described below.
 
 ```c
 typedef struct _IMAGE_DOS_HEADER {      // DOS .EXE header
