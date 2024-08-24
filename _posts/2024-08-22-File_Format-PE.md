@@ -65,6 +65,8 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 [PE Header: NT Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-II/)
 
+[PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
+
 <br>
 
 ---
