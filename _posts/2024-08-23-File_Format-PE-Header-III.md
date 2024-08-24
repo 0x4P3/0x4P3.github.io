@@ -10,7 +10,7 @@ tags: [PE]
 
 ## Data Directory
 
-In the previous blog of this series, the data directory were only mentioned as last member of Optional Header. In this part, we will dive more into data directory. 
+In the previous blog of this series, the data directory were only mentioned as last member of Optional Header. In this part, we will dive more into Data Directory. 
 
 Data directory are data array that store pointers from all other data structures that are located within one of the section of PE file. Those data structures are listed below.
 
@@ -51,3 +51,7 @@ The `VirtualAddress` specifies the RVA of start of the Data Directory and the `S
 ### Data Directory - Export Table
 
 Soon
+
+<br>
+
+---
