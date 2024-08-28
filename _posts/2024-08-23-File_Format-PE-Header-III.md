@@ -8,6 +8,12 @@ tags: [PE]
 
 ---
 
+The previous part of this blog series: [PE Header: NT Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-II/)
+
+<br>
+
+---
+
 ## Data Directory
 
 In the previous blog of this series, the Data Directory were only mentioned as last member of Optional Header. In this part, we will dive more into Data Directory. 

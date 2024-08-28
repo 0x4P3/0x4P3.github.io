@@ -8,6 +8,12 @@ tags: [PE]
 
 ---
 
+The previous part of this blog series: [PE Header: Overview](https://venuschhantel.com.np/posts/File_Format-PE/)
+
+<br>
+
+---
+
 ## MS DOS Header
 
 ![PE Illustration](/images/2024-08-22-File_Format-PE-Header-I/1.jpg)
@@ -101,6 +107,12 @@ The XOR decryption and parsing of the decrypted values is done automatically by 
 ![PE-Bear](/images/2024-08-22-File_Format-PE-Header-I/8.jpg)
 
 All the metadata like ProductId, BuildId, use Count and Visual Studio version can be seen above.
+
+<br>
+
+---
+
+The next part of the blog series: [PE Header: NT Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-II/)
 
 <br>
 

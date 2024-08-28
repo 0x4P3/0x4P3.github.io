@@ -61,9 +61,13 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 ## PE Structures 
 
+Lets now cover each of those PE structures:
+
 ### [PE Header: MS DOS Header, MS DOS Stub & Rich Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-I/)
 
 ### [PE Header: NT Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-II/)
+
+### [PE Header: NT Header - Optional Header - Data Directory](https://venuschhantel.com.np/posts/File_Format-PE-Header-III/)
 
 ### [PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
 

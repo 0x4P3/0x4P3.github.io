@@ -8,6 +8,12 @@ tags: [PE]
 
 ---
 
+The previous part of this blog series: [PE Header: NT Header - Optional Header - Data Directory](https://venuschhantel.com.np/posts/File_Format-PE-Header-III/)
+
+<br>
+
+---
+
 ## Section Header
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-Section/1.png)

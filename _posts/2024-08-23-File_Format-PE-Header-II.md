@@ -8,6 +8,12 @@ tags: [PE]
 
 ---
 
+The previous part of this blog series: [PE Header: MS DOS Header, MS DOS Stub & Rich Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-I/)
+
+<br>
+
+---
+
 ## NT Header
 
 ![PE Illustration](/images/2024-08-23-File_Format-PE-Header-II/1.png)
@@ -226,6 +232,12 @@ Lets now focus on the important ones. Other are documented here: [PE Format - Op
 Lets check the Optional Header in PE-Bear.
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-II/8.png)
+
+<br>
+
+---
+
+The next part of the blog series: [PE Header: NT Header - Optional Header - Data Directory](https://venuschhantel.com.np/posts/File_Format-PE-Header-III/)
 
 <br>
 
