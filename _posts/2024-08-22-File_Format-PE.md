@@ -10,7 +10,7 @@ tags: [PE]
 
 ## Getting Started
 
-A deep understanding of the PE file format is fundamental from Windows malware analyst perspective, as it serves as the foundation for analyzing Windows binaries. In this blog series, I will provide an in-depth breakdown of the PE file format, along with some practical tips to help in your malware analysis.
+A deep understanding of the PE (Portable Executable) file format is fundamental from Windows malware analyst perspective, as it serves as the foundation for analyzing Windows binaries. In this blog series, I will provide an in-depth breakdown of the PE file format, along with some practical tips to help in your malware analysis.
 
 If you want to follow along, the tools that I will be using on this blog series are:
 
@@ -61,11 +61,11 @@ This above structure can be seen following in PE-bear tool. Each of those PE str
 
 ## PE Structures 
 
-[PE Header: MS DOS Header, MS DOS Stub & Rich Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-I/)
+### [PE Header: MS DOS Header, MS DOS Stub & Rich Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-I/)
 
-[PE Header: NT Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-II/)
+### [PE Header: NT Header](https://venuschhantel.com.np/posts/File_Format-PE-Header-II/)
 
-[PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
+### [PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
 
 <br>
 
