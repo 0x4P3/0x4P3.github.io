@@ -61,3 +61,9 @@ Soon
 <br>
 
 ---
+
+The next part of the blog series: [PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
+
+<br>
+
+---
