@@ -82,7 +82,7 @@ Lets understand the important components:
     - If bound, value is 0.
     - If not bound, then value is -1 with data/time stamp in `IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT`. We will cover bound import in next section.
 - `ForwarderChain`:  This field specifies the index of first forwarder chain reference for DLL forwarding (DLL forwards its exported function to another DLL).
-- `OriginalFirstThunk`: This field specifies the RVA of INT (Import Name Table).
+- `OriginalFirstThunk`: This field specifies the RVA of INT (Import Name Table), aka ILT (Import Lookup Table).
 - `FirstThunk`: This field specifies the RVA of IAT (Import Address Table).
 
 Both `OriginalFirstThunk` and `FirstThunk` points to another data structure called `_IMAGE_THUNK_DATA`, which is described below.
@@ -140,6 +140,27 @@ Lets view Imports in PE-Bear.
 ---
 
 ### Data Directory - Bound Import Directory
+
+Bound Imports is speed optimization technique where address of import function for specific version of DLL are assumed and resolved at link time and place in IAT (Import Address Table). 
+
+The Bound Import Data Directory points to another structure:
+
+```c
+typedef struct _IMAGE_BOUND_IMPORT_DESCRIPTOR {
+    DWORD   TimeDateStamp;
+    WORD    OffsetModuleName;
+    WORD    NumberOfModuleForwarderRefs;
+// Array of zero or more IMAGE_BOUND_FORWARDER_REF follows
+} IMAGE_BOUND_IMPORT_DESCRIPTOR,  *PIMAGE_BOUND_IMPORT_DESCRIPTOR;
+```
+
+But note that ASLR (Address Space Layout Randomization) will fix the IAT entries making the bound import useless.
+
+<br>
+
+---
+
+### Data Directory - Delay Load Import Directory
 
 Soon
 
