@@ -210,7 +210,13 @@ Below is the example from [Open Security Training](https://www.opensecuritytrain
 
 ---
 
-### Data Directory - Delay Load Import Directory
+### Data Directory - Export Directory
+
+Soon
+
+---
+
+### Data Directory - Relocation Directory
 
 Soon
 
