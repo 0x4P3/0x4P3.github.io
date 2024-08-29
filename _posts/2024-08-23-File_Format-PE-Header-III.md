@@ -214,6 +214,8 @@ Below is the example from [Open Security Training](https://www.opensecuritytrain
 
 Soon
 
+<br>
+
 ---
 
 ### Data Directory - Relocation Directory
