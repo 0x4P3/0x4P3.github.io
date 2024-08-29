@@ -82,7 +82,7 @@ Lets understand the important components:
     - If bound, value is 0.
     - If not bound, then value is -1 with data/time stamp in `IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT`. We will cover bound import in next section.
 - `ForwarderChain`:  This field specifies the index of first forwarder chain reference for DLL forwarding (DLL forwards its exported function to another DLL).
-- `OriginalFirstThunk`: This field specifies the RVA of INT (Import Name Table), aka ILT (Import Lookup Table).
+- `OriginalFirstThunk`: This field specifies the RVA of INT (Import Name Table), also known as ILT (Import Lookup Table).
 - `FirstThunk`: This field specifies the RVA of IAT (Import Address Table).
 
 Both `OriginalFirstThunk` and `FirstThunk` points to another data structure called `_IMAGE_THUNK_DATA`, which is described below.
@@ -155,6 +155,56 @@ typedef struct _IMAGE_BOUND_IMPORT_DESCRIPTOR {
 ```
 
 But note that ASLR (Address Space Layout Randomization) will fix the IAT entries making the bound import useless.
+
+<br>
+
+---
+
+### Data Directory - Delay Load Import Directory
+
+Before understanding Delay Load Import, its first understand about some linking: 
+
+- Static Linking (also known as Implicit Linking) is when application is linked to a DLL at compile time. So the linker creates a dependency on the DLL and OS loader loads those DLL when application starts.
+- Dynamic Linking (also known as Explicit Linking) is when application loads the DLL at runtime, only when needed, using functions like `LoadLibrary` and `GetProcAddress`.
+- Delay-Load Import is when application is linked to the DLL at compile time, but loads DLL at runtime only when actually needed. The loading of DLL is delayed until needed by application.
+
+The Delay-Load Import Directory points to another structure:
+
+```c
+typedef struct _IMAGE_DELAY_IMPORT_DESCRIPTOR {
+DWORD           grAttrs;        // attributes
+RVA             rvaDLLName;     // RVA to dll name
+RVA             rvaHmod;        // RVA of module handle
+RVA             rvaIAT;         // RVA of the IAT
+RVA             rvaINT;         // RVA of the INT
+RVA             rvaBoundIAT;    // RVA of the optional bound IAT
+RVA             rvaUnloadIAT;   // RVA of optional copy of original IAT
+DWORD           dwTimeStamp;    // 0 if not bound,
+                                // O.W. date/time stamp of DLL bound to (Old BIND)
+} ImgDelayDescr, * PImgDelayDescr;
+```
+
+Lets understand the important components:
+
+- `rvaDLLName`: This field specifies which DLL to delay load import.
+- `rvaIAT`: This field specifies the IAT (Import Address Table) for delay-load functions only.
+    - Initially, it holds virtual address of stub code (delay load helper).
+    - When delay load import function is called for first time, the stub code loads the DLL that contain the function to be imported and resolves the address of import function and save the import function address.
+    - Next time when delay load import function is called, it directly uses the import function address.
+
+Below is the example from [Open Security Training](https://www.opensecuritytraining.info/LifeOfBinaries.html).
+
+- When the delay load import function `DrawThemeBackground` is called for first time. The stub code resolves the address of function and save the import function address.
+    
+    ![OST-DelayLoadImport](/images/2024-08-23-File_Format-PE-Header-III/4.png)
+
+    ![OST-DelayLoadImport](/images/2024-08-23-File_Format-PE-Header-III/5.png)
+
+    ![OST-DelayLoadImport](/images/2024-08-23-File_Format-PE-Header-III/6.png)
+
+- Next time when delay load import function `DrawThemeBackground` is called, it directly uses the import function address.
+    
+    ![OST-DelayLoadImport](/images/2024-08-23-File_Format-PE-Header-III/7.png)
 
 <br>
 
