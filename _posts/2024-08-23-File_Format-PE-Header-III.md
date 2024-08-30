@@ -351,7 +351,7 @@ typedef struct _IMAGE_RESOURCE_DIRECTORY_ENTRY {
 - `Name` or `id`
     - If the most significant bit of DWORD is 8, then lower 31 bit specifies the offset to string (`Name`)
     - If the more significant bit of DWORD is not set, then its treated as WORD sized `Id`.
-- `OffsetToDirectory`
+- `OffsetToDirectory` or `DataIsDirectory`
     - If the most significant bit of DWORD is 8, then lower 31 bit specifies offset to another `_IMAGE_RESOURCE_DIRECTORY` structure.
     - If the more significant bit of DWORD is not set, then it specifies the offset to actual data.
 
