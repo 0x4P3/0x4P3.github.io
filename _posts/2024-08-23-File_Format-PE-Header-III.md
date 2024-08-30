@@ -260,7 +260,7 @@ When importing by name, it does binary search over strings in ENT because nowada
 
 Even when importing by name, it just find index in ENT and select the same index in `AddressOfNameOrdinals`, reads it to use as index into EAT.
 
-Let view this by loading `C:\Windows\System32\AdvancedEmojiDS.dll` in PE-Bear.
+For this one, lets view by loading `C:\Windows\System32\AdvancedEmojiDS.dll` in PE-Bear.
 
 ![PE-Bear](/images/2024-08-23-File_Format-PE-Header-III/9.png)
 
@@ -306,6 +306,66 @@ Summing up, if feature like ASLR is enabled, the PE file will get random Image B
 ---
 
 ### Data Directory - Resource Directory
+
+PE file can contain resources (icons to embedded binaries) organized like of filesystem. The Resource Data Directory is located under `.rsrc` section. 
+
+The Resource Data Directory points to another structure:
+
+```c
+typedef struct _IMAGE_RESOURCE_DIRECTORY {
+    DWORD   Characteristics;
+    DWORD   TimeDateStamp;
+    WORD    MajorVersion;
+    WORD    MinorVersion;
+    WORD    NumberOfNamedEntries;
+    WORD    NumberOfIdEntries;
+} IMAGE_RESOURCE_DIRECTORY,
+```
+
+Lets understand some important ones:
+
+- `NumberOfNamedEntries` and `NumberOfIdEntries` : Each of them shows the number of resource, identified by name or Id respectively.
+
+Immediately after the above `_IMAGE_RESOURCE_DIRECTORY` structure is the `_IMAGE_RESOURCE_DIRECTORY_ENTRY` structure which is described below. 
+
+```c
+typedef struct _IMAGE_RESOURCE_DIRECTORY_ENTRY {
+    union {
+        struct {
+            DWORD NameOffset:31;
+            DWORD NameIsString:1;
+        };
+        DWORD   Name;
+        WORD    Id;
+    };
+    union {
+        DWORD   OffsetToData;
+        struct {
+            DWORD   OffsetToDirectory:31;
+            DWORD   DataIsDirectory:1;
+        };
+    };
+} IMAGE_RESOURCE_DIRECTORY_ENTRY;
+```
+
+- `Name` or `id`
+    - If the most significant bit of DWORD is 8, then lower 31 bit specifies the offset to string (`Name`)
+    - If the more significant bit of DWORD is not set, then its treated as WORD sized `Id`.
+- `OffsetToDirectory`
+    - If the most significant bit of DWORD is 8, then lower 31 bit specifies offset to another `_IMAGE_RESOURCE_DIRECTORY` structure.
+    - If the more significant bit of DWORD is not set, then it specifies the offset to actual data.
+
+Lets view this in PE-View
+
+![PEview](/images/2024-08-23-File_Format-PE-Header-III/11.png)
+
+Note: Those resource can be dumped using tool like Resource Hacker.
+
+<br>
+
+---
+
+### Data Directory - Debug Directory
 
 Soon
 
