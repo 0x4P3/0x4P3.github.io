@@ -58,6 +58,8 @@ Lets now cover some important Data Directory.
 
 ### Data Directory - Import Directory
 
+Imports are functions that are provided by other DLLs (Dynamic-Link Libraries), which a PE file, such as an executable, incorporates to perform specific tasks. The Import Data Directory is located under `.idata` section.
+
 The Import Data Directory points to another structure:
 
 ```c
@@ -212,13 +214,98 @@ Below is the example from [Open Security Training](https://www.opensecuritytrain
 
 ### Data Directory - Export Directory
 
-Soon
+Exports are functions that a DLL makes available for other PE files, such as executables, to use.
+
+Functions can be exported via:
+
+- Name
+- Ordinal (Index)
+
+The Export Data Directory is located under `.edata` section.
+
+The Export Data Directory points to another structure:
+
+```c
+typedef struct _IMAGE_EXPORT_DIRECTORY {
+    DWORD   Characteristics;
+    DWORD   TimeDateStamp;
+    WORD    MajorVersion;
+    WORD    MinorVersion;
+    DWORD   Name;
+    DWORD   Base;
+    DWORD   NumberOfFunctions;
+    DWORD   NumberOfNames;
+    DWORD   AddressOfFunctions;     // RVA from base of image
+    DWORD   AddressOfNames;         // RVA from base of image
+    DWORD   AddressOfNameOrdinals;  // RVA from base of image
+} IMAGE_EXPORT_DIRECTORY, *PIMAGE_EXPORT_DIRECTORY;
+```
+
+Lets understand some important ones:
+
+- `NumberOfFunctions` and `NumbersOfNames` : These both value specifies the number of exporting functions. But note that this both value may be different if exporting by ordinal.
+- `AddressOfFunction`: This field specifies the RVA which points to beginning of array which holds DWORD RVAs that points to start of exported function. This is equivalent to EAT (Export Address Table).
+- `AddressOfName`: This field specifies the RVA which points to beginning of array which holds DWORD RVAs that points to strings of function name. This is equivalent to ENT (Export Name Table).
+- `Base`: This field specifies the number that needs to be subtracted to get zero-indexed offset into `AddressOfFunction` offset.
+    - Example: Ordinally usually starts with 1 then base is 1. But ordinal can be set to start at any according to programmer like say 37. then the base will be 37. Below is example from [Open Security Training](https://www.opensecuritytraining.info/LifeOfBinaries.html).
+    
+    ![PEview](/images/2024-08-23-File_Format-PE-Header-III/8.png)
+    
+- `AddressOfNameOrdinals`: This field specifies the RVA which points to beginning of array which holds WORD size ordinals. The entries in this array are already zero-indices into EAT to not get affected by `Base`.
+
+When importing by name, it does binary search over strings in ENT because nowadays they are lexically sorted.
+
+- Back in days they were not sorted lexically, so it was encouraged to ‘import by ordinal’.
+- But, downside of importing by ordinal is if ordinal changes, apps break
+
+Even when importing by name, it just find index in ENT and select the same index in `AddressOfNameOrdinals`, reads it to use as index into EAT.
+
+Let view this by loading `C:\Windows\System32\AdvancedEmojiDS.dll` in PE-Bear.
+
+![PE-Bear](/images/2024-08-23-File_Format-PE-Header-III/9.png)
+
 
 <br>
 
 ---
 
-### Data Directory - Relocation Directory
+### Data Directory - Base Relocation Directory
+
+As mentioned in previous blog that there is Image Base address `IMAGE_OPTIONAL_HEADER.ImageBase` where the PE file will be loaded, which is assumed at compile time. But features like ASLR (Address Space Layout Randomization) can load the PE file in another random base address, making original one invalid. For such case, the PE file is relocated by loader using Base Relocation Table. The Base Relocation Data Directory is located under `.idata` section.
+
+The Base Relocation Data Directory points to another structure:
+
+```c
+typedef struct _IMAGE_BASE_RELOCATION {
+    DWORD   VirtualAddress;
+    DWORD   SizeOfBlock;
+//  WORD    TypeOffset[1];
+} IMAGE_BASE_RELOCATION;
+```
+
+- `VirtualAddress`: This field specifies the page-aligned virtual address that specified relocation targets will be relative to.
+- `SizeOfBlock`: This field specifies the size that needs to be fixed in memory range.
+- Following the `SizeOfBlock` are variable number of WORD-sized relocation targets.
+
+Lets view this in the PE-View.
+
+![PEview](/images/2024-08-23-File_Format-PE-Header-III/10.png)
+
+In the image above, the `VirtualAddress` (RVA of Block) and `SizeOfBlock` (Size of Block) can be seen. And following it are the WORD-sized relocation target.
+
+Example: Lets take `0x3000`.
+
+- The upper 4th bit, `0x3` = `IMAGE_REL_BASED_HIGHLOW` , which specifies that the RVA for data to be relocated is `VirtualAddress` + lower 12 bits (`0x000`).
+
+Similarly, the `0x3004` is `VirtualAddress` + lower 12 bits (`0x004`) and so on.
+
+Summing up, if feature like ASLR is enabled, the PE file will get random Image Base address `IMAGE_OPTIONAL_HEADER.ImageBase` when loaded. Suppose `0x50000` , then the address that it fixed are `0x51001`, `0x51004`, `0x51044`, and so on.
+
+<br>
+
+---
+
+### Data Directory - Resource Directory
 
 Soon
 

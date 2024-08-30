@@ -14,7 +14,8 @@ A deep understanding of the PE (Portable Executable) file format is fundamental 
 
 If you want to follow along, the tools that I will be using on this blog series are:
 
-- PE-bear
+- PE-Bear
+- PEview
 - CyberChef
 
 Lets now get our hand dirty.
