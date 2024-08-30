@@ -367,7 +367,68 @@ Note: Those resource can be dumped using tool like Resource Hacker.
 
 ### Data Directory - Debug Directory
 
-Soon
+The Debug Data Directory is located under `.debug` directory and holds information used for debugging purposes. 
+
+The Debug Data Directory points to another structure:
+
+```c
+typedef struct _IMAGE_DEBUG_DIRECTORY {
+    DWORD   Characteristics;
+    DWORD   TimeDateStamp;
+    WORD    MajorVersion;
+    WORD    MinorVersion;
+    DWORD   Type;             
+    DWORD   SizeOfData;
+    DWORD   AddressOfRawData;
+    DWORD   PointerToRawData;
+} IMAGE_DEBUG_DIRECTORY, *PIMAGE_DEBUG_DIRECTORY;
+```
+
+Lets understand some important ones:
+
+- **`TimeDateStamp`: This field specifies the time date stamp last time debug information was changed.**
+- **`Type`: This field will always be 2 (`IMAGE_DEBUG_TYPE_CODEVIEW`). Microsoft used this structure for its debug information.**
+    - **For `IMAGE_DEBUG_TYPE_CODEVIEW`, there can be 2 PDB (Portable Debug) file structures:**
+        - **PBD 2.00 file**
+        - **PBD 7.00 file**
+        
+        ```c
+        #define CV_SIGNATURE_NB10   '01BN'
+        #define CV_SIGNATURE_RSDS   'SDSR'
+        // CodeView header 
+        struct CV_HEADER {
+        DWORD CvSignature; // NBxx
+        LONG  Offset;      // Always 0 for NB10
+        };
+        // CodeView NB10 debug information 
+        // (used when debug information is stored in a PDB 2.00 file) 
+        struct CV_INFO_PDB20 {
+        CV_HEADER  Header; 
+        DWORD      Signature;       // seconds since 01.01.1970
+        DWORD      Age;             // an always-incrementing value 
+        BYTE       PdbFileName[1];  // zero terminated string with the name of the PDB file 
+        };
+        
+        // CodeView RSDS debug information 
+        // (used when debug information is stored in a PDB 7.00 file) 
+        struct CV_INFO_PDB70 {
+        DWORD      CvSignature; 
+        GUID       Signature;       // unique identifier 
+        DWORD      Age;             // an always-incrementing value 
+        BYTE       PdbFileName[1];  // zero terminated string with the name of the PDB file 
+        };
+        ```
+        
+    - Note the PDB information can be helpful to identify if different malware strains were created by same authors.
+- **`SizeOfData`: This field specifies the size of debug information.**
+- **`AddressOfRawData`: This field specifies the RVA to debug information.**
+- **`PointerToRawData`: This field specifies the file offset to debug information.**
+
+Below the example of `C:\Windows\System32\acledit.exe` viewed in PEview  from [Open Security Training](https://www.opensecuritytraining.info/LifeOfBinaries.html).
+
+![PEview](/images/2024-08-23-File_Format-PE-Header-III/12.png)
+
+![PEview](/images/2024-08-23-File_Format-PE-Header-III/13.png)
 
 <br>
 
