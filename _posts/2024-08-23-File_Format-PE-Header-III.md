@@ -501,22 +501,6 @@ Lets view this in PE view by loading `C:\Windows\System32\bootcfg.exe`.
 
 ---
 
-### Data Directory - Load Config Directory
-
-Soon
-
-<br>
-
----
-
-### Data Directory - Security Directory
-
-Soon
-
-<br>
-
----
-
 The next part of the blog series: [PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
 
 <br>
