@@ -434,7 +434,7 @@ Below the example of `C:\Windows\System32\acledit.dll` viewed in PEview  from [O
 
 ---
 
-### Data Directory - TLS Directory
+### Data Directory - TLS (Thread Local Storage) Directory
 
 Threads are distinct unit of execution flow and context which are managed by kernel. 
 
@@ -496,6 +496,79 @@ Lets understand some important ones:
 Lets view this in PE view by loading `C:\Windows\System32\bootcfg.exe`.
 
 ![PEview](/images/2024-08-23-File_Format-PE-Header-III/14.png)
+
+<br>
+
+---
+
+### Data Directory - Load Config Directory
+
+The Load Config Data Directory is typically located under `rdata` data section that contains important security and runtime configuration information for the executable. 
+
+The Load Config Data Directory points to another structure:
+
+```c
+typedef struct {
+    DWORD   Size;
+    DWORD   TimeDateStamp;
+    WORD    MajorVersion;
+    WORD    MinorVersion;
+    DWORD   GlobalFlagsClear;
+    DWORD   GlobalFlagsSet;
+    DWORD   CriticalSectionDefaultTimeout;
+    DWORD   DeCommitFreeBlockThreshold;
+    DWORD   DeCommitTotalFreeThreshold;
+    DWORD   LockPrefixTable;            // VA
+    DWORD   MaximumAllocationSize;
+    DWORD   VirtualMemoryThreshold;
+    DWORD   ProcessHeapFlags;
+    DWORD   ProcessAffinityMask;
+    WORD    CSDVersion;
+    WORD    Reserved1;
+    DWORD   EditList;                   // VA
+    DWORD   SecurityCookie;             // VA
+    DWORD   SEHandlerTable;             // VA
+    DWORD   SEHandlerCount;
+} IMAGE_LOAD_CONFIG_DIRECTORY32
+```
+
+```c
+typedef struct {
+    DWORD      Size;
+    DWORD      TimeDateStamp;
+    WORD       MajorVersion;
+    WORD       MinorVersion;
+    DWORD      GlobalFlagsClear;
+    DWORD      GlobalFlagsSet;
+    DWORD      CriticalSectionDefaultTimeout;
+    ULONGLONG  DeCommitFreeBlockThreshold;
+    ULONGLONG  DeCommitTotalFreeThreshold;
+    ULONGLONG  LockPrefixTable;         // VA
+    ULONGLONG  MaximumAllocationSize;
+    ULONGLONG  VirtualMemoryThreshold;
+    ULONGLONG  ProcessAffinityMask;
+    DWORD      ProcessHeapFlags;
+    WORD       CSDVersion;
+    WORD       Reserved1;
+    ULONGLONG  EditList;                // VA
+    ULONGLONG  SecurityCookie;          // VA
+    ULONGLONG  SEHandlerTable;          // VA
+    ULONGLONG  SEHandlerCount;
+} IMAGE_LOAD_CONFIG_DIRECTORY64, *PIMAGE_LOAD_CONFIG_DIRECTORY64;
+
+```
+
+Lets understand some important ones:
+
+- `SecurityCookie`: This field specifies the absolute VA (not RVA, therefore subject to relocation) that points at the location where the stack cookie used with the /GS flag will be.
+    - Stack cookie will be placed between local variables and saved EIP, which checksum will be matched.
+- `SEHandlerTable`: This field specifies the absolute VA (not RVA) which points to a table of RVAs that specify the only exception handlers which are valid for use with Structured Exception Handler (SEH).
+    - The placement of the pointers to these handlers is caused by the /SAFESEH linker options.
+- `SEHandlerCount`: This field specifies the number of entries in the array pointed to by SEHandlerTable.
+
+Lets view this in PE-Bear.
+
+![PE-Bear](/images/2024-08-23-File_Format-PE-Header-III/15.png)
 
 <br>
 
