@@ -574,6 +574,15 @@ Lets view this in PE-Bear.
 
 ---
 
+### Data Directory - Security/Certificate Directory
+
+The Security/Certificate Data Directory points to sign code if it has digital certificate embedded.
+- The `IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY` characteristic will be set in Optional header
+
+<br>
+
+---
+
 The next part of the blog series: [PE Header: Section Header & PE Sections](https://venuschhantel.com.np/posts/File_Format-PE-Header-Section/)
 
 <br>
