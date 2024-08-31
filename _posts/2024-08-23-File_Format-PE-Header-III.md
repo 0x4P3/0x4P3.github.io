@@ -424,11 +424,94 @@ Lets understand some important ones:
 - **`AddressOfRawData`: This field specifies the RVA to debug information.**
 - **`PointerToRawData`: This field specifies the file offset to debug information.**
 
-Below the example of `C:\Windows\System32\acledit.exe` viewed in PEview  from [Open Security Training](https://www.opensecuritytraining.info/LifeOfBinaries.html).
+Below the example of `C:\Windows\System32\acledit.dll` viewed in PEview  from [Open Security Training](https://www.opensecuritytraining.info/LifeOfBinaries.html). Check SECTION .text > IMAGE_DEBUG_DIRECTORY in PEview.
 
 ![PEview](/images/2024-08-23-File_Format-PE-Header-III/12.png)
 
 ![PEview](/images/2024-08-23-File_Format-PE-Header-III/13.png)
+
+<br>
+
+---
+
+### Data Directory - TLS Directory
+
+Threads are distinct unit of execution flow and context which are managed by kernel. 
+
+They can coexist within a single process address space and access the same global variables. This can cause race condition, where two thread access and modify some variable which alter other thread’s execution.
+
+To avoid this, TLS (Thread Local Storage) mechanism was introduced to have variable accessible only to a single thread. This is stored in `.tls` section. TLS supports both regular data and callback functions.
+
+Note that the TLS callback functions are executed before entry point when a process/thread starts or even when stopped (`DLL_PROCESS_ATTACH`, `DLL_PROCESS_DETACH`, `DLL_THREAD_ATTACH` and `DLL_THREAD_DETACH`). 
+
+Malware often abuse this for anti-analysis. Example:
+
+```c
+#include <windows.h>
+#include <stdio.h>
+#include "ulnfeat.h”
+/* This is a TLS callback. It */
+void __stdcall callback(void * /*instance*/,
+                        DWORD reason,
+                        void * /*reserved*/)
+{
+  if ( reason == DLL_PROCESS_ATTACH )
+  {
+    MessageBox(NULL, "Hello, world!", "Hidden message", MB_OK);
+    ExitProcess(0);
+  }
+}
+TLS_CALLBACK(c1, callback);     // Unilink trick to declare callbacks
+/*  This is the main function.
+     It will never be executed since the callback will call ExitProcess().
+*/
+int main(void)
+{
+  return 0;
+}
+```
+
+- TLS callback is executed before main and will never execute main in above case since it will exit during TLS call back
+
+The TLS Data Directory points to another structure:
+
+```c
+typedef struct _IMAGE_TLS_DIRECTORY {
+    DWORD   StartAddressOfRawData;
+    DWORD   EndAddressOfRawData;
+    DWORD   AddressOfIndex;
+    DWORD   AddressOfCallBacks;
+    DWORD   SizeOfZeroFill;
+    DWORD   Characteristics;
+} IMAGE_TLS_DIRECTORY32;
+```
+
+Lets understand some important ones:
+
+- `StartAddressOfRawData`: This field specifies the absolute virtual address (not RVA, and therefore subject to relocations) where the data starts.
+- `EndAddressOfRawData`: This field specifies the absolute virtual address (not RVA, and therefore subject to relocations) where the data ends.
+- `AddressOfCallbacks`: This field specifies the absolute virtual address points to an array of `PIMAGE_TLS_CALLBACK` function pointers.
+- `SizeOfZeroFill`: This field specifies the size of block of memory, while not explicitly initialized by the program, is automatically filled with zeros by the loader when the TLS data is allocated at runtime. This is similar to `.bss` section, which is used to allocated uninitialized variables.
+
+Lets view this in PE view by loading `C:\Windows\System32\bootcfg.exe`.
+
+![PEview](/images/2024-08-23-File_Format-PE-Header-III/14.png)
+
+<br>
+
+---
+
+### Data Directory - Load Config Directory
+
+Soon
+
+<br>
+
+---
+
+### Data Directory - Security Directory
+
+Soon
 
 <br>
 
