@@ -26,7 +26,7 @@ I simply like to keep learning new things. On this website, I publish my researc
 
 |Certifications| Issued on  | Validate |
 |--|--|--|
-| PJMR (Practical Junior Malware Researcher) | Nov 4, 2023 | [Click Here](https://www.credential.net/972263eb-7fde-4acd-93ab-568e38077b55#gs.1999s6) |
+| PJMR (Practical Malware Researcher Professional) | Nov 4, 2023 | [Click Here](https://www.credential.net/972263eb-7fde-4acd-93ab-568e38077b55#gs.1999s6) |
 
 
 ## Education
