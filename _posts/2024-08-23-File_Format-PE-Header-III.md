@@ -2,7 +2,7 @@
 layout:	post
 title:  "(IV) PE Header: NT Header - Optional Header - Data Directory"
 date:   2024-08-22 09:11:11 +0200
-categories: [File Formats, Portable Executable (PE)]
+categories: [File Formats, Portable Executable]
 tags: [PE]
 ---
 
