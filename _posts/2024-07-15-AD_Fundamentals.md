@@ -210,4 +210,3 @@ When trust is created, SID filtering is enabled by default. ***SID filtering*** 
 - If a user is member of five group, it will recieve a SID for each of those five groups. The SID that are not part of trusted domain gets removed by SID filtering when that user try to access resource over a trust.
 
 Whenever user access resource over trust, the user SID will be added to ***Foreign Security Principals***, which is represents security principals from foreign another domain.
-
