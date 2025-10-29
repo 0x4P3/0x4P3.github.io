@@ -2,7 +2,7 @@
 layout:	post
 title:  "(I) PE: Overview"
 date:   2024-08-22 05:11:01 +0200
-image: /images/2024-08-22-File_Format-PE/PE.jpg
+image: /images/2024-08-22-File_Format-PE/pe_format.png
 categories: [File Formats, Portable Executable (PE)]
 tags: [PE]
 ---
