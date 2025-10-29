@@ -2,6 +2,7 @@
 layout:	post
 title:  "(II) PE Header: MS DOS Header, MS DOS Stub & Rich Header"
 date:   2024-08-22 06:11:11 +0200
+image: /images/2024-08-22-File_Format-PE/PE.jpg
 categories: [File Formats, Portable Executable (PE)]
 tags: [PE]
 ---
