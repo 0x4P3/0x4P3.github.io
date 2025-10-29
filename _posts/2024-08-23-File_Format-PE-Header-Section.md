@@ -2,6 +2,7 @@
 layout:	post
 title:  "(V) PE Header: Section Header & PE Section"
 date:   2024-08-22 10:11:11 +0200
+image: /images/2024-08-22-File_Format-PE/PE.jpg
 categories: [File Formats, Portable Executable (PE)]
 tags: [PE]
 ---
