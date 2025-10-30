@@ -1,7 +1,7 @@
 ---
 layout:	post
 title:  "AD Initial-Attacks: IPv6 DNS Takeover"
-date:   2024-07-22 11:11:11 +0200
+date:   2026-07-22 11:11:11 +0200
 categories: [Active Directory]
 tags: [Active Directory]
 ---
