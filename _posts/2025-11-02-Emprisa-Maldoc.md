@@ -438,9 +438,8 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <code>Times New Roman</code>
   <br>
   Checking other stream of RTF document using rtfdump, we can find the font name.
-
-  ```bash
-  $ rtfdump.py -s 9 -H c39-EmprisaMaldoc.rtf 
+  <br>
+  <pre><code>$ rtfdump.py -s 9 -H c39-EmprisaMaldoc.rtf 
 00000000: 01 00 09 00 00 03 9E 00  00 00 02 00 1C 00 00 00  ................
 00000010: 00 00 05 00 00 00 09 02  00 00 00 00 05 00 00 00  ................
 00000020: 02 01 01 00 00 00 05 00  00 00 01 02 FF FF FF 00  ................
@@ -460,8 +459,7 @@ The emulation revealed that shellcode resolved various Win API dynamically:
 00000100: 00 00 01 02 02 22 53 79  73 74 65 6D 00 00 48 00  ....."System..H.
 00000110: 8A 01 00 00 0A 00 06 00  00 00 48 00 8A 01 FF FF  ..........H.....
 00000120: FF FF 6C E2 18 00 04 00  00 00 2D 01 01 00 04 00  ..l.......-.....
-00000130: 00 00 F0 01 00 00 03 00  00 00 00 00              ............
-  ```
+00000130: 00 00 F0 01 00 00 03 00  00 00 00 00              ............</pre></code>
 
 </details>
 
@@ -472,7 +470,8 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <summary>Show Answer</summary>
   <code>https://github.com/rip1s/CVE-2017-11882</code>
   <br>
-  Found the repository via Google dorking: 
+  Found the Github repository via Google dorking:
+  <br> 
   <code>site:github.com intext:CVE-2017-11882</code>.
 
 </details>
