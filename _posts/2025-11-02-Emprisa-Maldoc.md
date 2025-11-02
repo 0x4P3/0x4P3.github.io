@@ -372,8 +372,7 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <summary>Show Answer</summary>
   <code>eqnedt32.exe</code>
   <br>
-  The RTF document exploits Equation Editor vulnerability and injects shellcode into eqnedt32.exe, which can also be seen in [AnyRun](). 
-  <a href="https://app.any.run/tasks/cbb1a985-9b20-46f1-b96c-fd1d3b8102a2"">Any Run</a>.
+  The RTF document exploits Equation Editor vulnerability and injects shellcode into eqnedt32.exe process, which can also be seen in <a href="https://app.any.run/tasks/cbb1a985-9b20-46f1-b96c-fd1d3b8102a2">Any.Run</a>.
 
 </details>
 
