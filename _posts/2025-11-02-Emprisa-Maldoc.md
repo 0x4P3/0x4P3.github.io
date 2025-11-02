@@ -340,6 +340,122 @@ The emulation revealed that shellcode resolved various Win API dynamically:
 
 ## Questions:
 
+**What is the CVE ID of the exploited vulnerability?**
+<details>
+  <summary>Show Answer</summary>
+  <code>CVE-2017-11882</code>
+</details>
+
+<br>
+
+**To reproduce the exploit in a lab environment and mimic a corporate machine running Microsoft office 2007, a specific patch should not be installed. Provide the patch number.**
+<details>
+  <summary>Show Answer</summary>
+  <code>KB4011604</code>
+  <br>
+  Can be found in [Microsoft documentation](https://support.microsoft.com/en-us/topic/description-of-the-security-update-for-2007-microsoft-office-suite-november-28-2017-7f275c8d-14df-8be5-3f9c-b3761bf9681d).
+
+</details>
+
+<br>
+
+**What is the magic signature in the object data?**
+<details>
+  <summary>Show Answer</summary>
+  <code>d0cf11e0</code>
+</details>
+
+<br>
+
+**What is the name of the spawned process when the document gets opened?**
+<details>
+  <summary>Show Answer</summary>
+  <code>eqnedt32.exe</code>
+  <br>
+  The RTF document exploits Equation Editor vulnerability and injects shellcode into eqnedt32.exe, which can also be seen in [AnyRun](https://app.any.run/tasks/cbb1a985-9b20-46f1-b96c-fd1d3b8102a2). 
+
+</details>
+
+<br>
+
+**What is the full path of the downloaded payload?**
+<details>
+  <summary>Show Answer</summary>
+  <code>C:\o.exe</code>
+
+</details>
+
+<br>
+
+**Where is the URL used to fetch the payload?**
+<details>
+  <summary>Show Answer</summary>
+  <code>https://raw.githubusercontent.com/accidentalrebel/accidentalrebel.com/gh-pages/theme/images/test.png</code>
+
+</details>
+
+<br>
+
+**The document contains an obfuscated shellcode. What string was used to cut the shellcode in half? (Two words, space in between)**
+<details>
+  <summary>Show Answer</summary>
+  <code>Equation Native</code>
+
+</details>
+
+<br>
+
+**What function was used to download the payload file from within the shellcode?**
+<details>
+  <summary>Show Answer</summary>
+  <code>URLDownloadToFileA</code>
+
+</details>
+
+<br>
+
+**What function was used to execute the downloaded payload file?**
+<details>
+  <summary>Show Answer</summary>
+  <code>WinExec</code>
+
+</details>
+
+<br>
+
+**Which DLL gets loaded using the "LoadLibrayA" function?**
+<details>
+  <summary>Show Answer</summary>
+  <code>urlmon.dll</code>
+
+</details>
+
+<br>
+
+**What is the FONT name that gets loaded by the process to trigger the buffer overflow exploit?(3 words)**
+<details>
+  <summary>Show Answer</summary>
+  <code>x</code>
+
+</details>
+
+<br>
+
+**What is the GitHub link of the tool that was likely used to make this exploit?**
+<details>
+  <summary>Show Answer</summary>
+  <code>x</code>
+
+</details>
+
+<br>
+
+**What is the memory address written by the exploit to execute the shellcode?**
+<details>
+  <summary>Show Answer</summary>
+  <code>x</code>
+
+</details>
 
 <br>
 
