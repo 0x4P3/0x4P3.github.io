@@ -439,7 +439,7 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <br>
   Checking other stream of RTF document using rtfdump, we can find the font name.
   <br>
-  <pre><code>$ rtfdump.py -s 9 -H c39-EmprisaMaldoc.rtf 
+  <pre><code>$ rtfdump.py -s 8 -H c39-EmprisaMaldoc.rtf 
 00000000: 01 00 09 00 00 03 9E 00  00 00 02 00 1C 00 00 00  ................
 00000010: 00 00 05 00 00 00 09 02  00 00 00 00 05 00 00 00  ................
 00000020: 02 01 01 00 00 00 05 00  00 00 01 02 FF FF FF 00  ................
@@ -470,9 +470,7 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <summary>Show Answer</summary>
   <code>https://github.com/rip1s/CVE-2017-11882</code>
   <br>
-  Found the Github repository via Google dorking:
-  <br> 
-  <code>site:github.com intext:CVE-2017-11882</code>.
+  Found the Github repository via Google dorking: <code>site:github.com intext:CVE-2017-11882</code>
 
 </details>
 
@@ -483,7 +481,7 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <summary>Show Answer</summary>
   <code>0x00402114</code>
   <br>
-  Can be found in the CVE-2017-11882.py source code from the same Github repository.
+  Can be found in the <code>CVE-2017-11882.py</code> source code from the same Github repository.
 
 </details>
 
