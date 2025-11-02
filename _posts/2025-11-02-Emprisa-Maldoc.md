@@ -353,7 +353,7 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <summary>Show Answer</summary>
   <code>KB4011604</code>
   <br>
-  Can be found in [Microsoft documentation](https://support.microsoft.com/en-us/topic/description-of-the-security-update-for-2007-microsoft-office-suite-november-28-2017-7f275c8d-14df-8be5-3f9c-b3761bf9681d).
+  Can be found in <a href="https://support.microsoft.com/en-us/topic/description-of-the-security-update-for-2007-microsoft-office-suite-november-28-2017-7f275c8d-14df-8be5-3f9c-b3761bf9681d">Microsoft documentation</a>.
 
 </details>
 
@@ -372,7 +372,8 @@ The emulation revealed that shellcode resolved various Win API dynamically:
   <summary>Show Answer</summary>
   <code>eqnedt32.exe</code>
   <br>
-  The RTF document exploits Equation Editor vulnerability and injects shellcode into eqnedt32.exe, which can also be seen in [AnyRun](https://app.any.run/tasks/cbb1a985-9b20-46f1-b96c-fd1d3b8102a2). 
+  The RTF document exploits Equation Editor vulnerability and injects shellcode into eqnedt32.exe, which can also be seen in [AnyRun](). 
+  <a href="https://app.any.run/tasks/cbb1a985-9b20-46f1-b96c-fd1d3b8102a2"">Any Run</a>.
 
 </details>
 
