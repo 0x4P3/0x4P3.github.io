@@ -444,7 +444,9 @@ The emulation revealed that shellcode resolved various Win API dynamically:
 **What is the GitHub link of the tool that was likely used to make this exploit?**
 <details>
   <summary>Show Answer</summary>
-  <code>x</code>
+  <code>https://github.com/rip1s/CVE-2017-11882</code>
+  <br>
+  Found the repository via Google dorking `site:github.com intext:CVE-2017-11882`.
 
 </details>
 
@@ -453,7 +455,9 @@ The emulation revealed that shellcode resolved various Win API dynamically:
 **What is the memory address written by the exploit to execute the shellcode?**
 <details>
   <summary>Show Answer</summary>
-  <code>x</code>
+  <code>0x00402114</code>
+  <br>
+  Can be found in the CVE-2017-11882.py source code from the same Github repository.
 
 </details>
 
