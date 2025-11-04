@@ -1,7 +1,7 @@
 ---
 layout:	post
 title:  "XLM Macros"
-date:   2025-11-02 02:11:01 +0200
+date:   2025-11-04 02:11:01 +0200
 image: /images/2025-11-04-XLM Macros/XLM_Macros.png
 categories: [CyberDefenders, Malware Analysis]
 tags: [cyberdefenders]
