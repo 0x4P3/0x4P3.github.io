@@ -88,7 +88,7 @@ Lets look more into this document under `LibreOffice`:
 
 ![Visible Sheets](/images/2025-11-04-XLM-Macros/1.png)
 
-Three visible sheets can be seen above. However, threat actors normally hide the malicious sheets to prevent immediate discovery. Lets check for hidden sheet by navigating to:
+Three visible sheets, `Sheet1`, `Sheet2` and `Sheet3` can be seen above. However, threat actors normally hide the malicious sheets to prevent immediate discovery. Lets check for hidden sheet by navigating to:
 `Right click on Sheet tab => Show Sheet...`
 
 ![Hidden Sheets](/images/2025-11-04-XLM-Macros/2.png)
@@ -179,7 +179,7 @@ Regardless of the technique followed, both tool dump the same de-obfuscated macr
   <summary>Show Answer</summary>
   <code>dridex</code>
   <br>
-  Found signature in <a href="https://bazaar.abuse.ch/sample/7103c9d1c2a64b80a4b69e3d91487b602fd4ede836722fa9c0daf4fe09a2b7cd/">Malware Bazaar</a> via Google dorking the IoC: <code>intext:"rilaer.com/IfAmGZIJjbwzvKNTxSPM/ixcxmzcvqi</code>
+  Found signature in <a href="https://bazaar.abuse.ch/sample/7103c9d1c2a64b80a4b69e3d91487b602fd4ede836722fa9c0daf4fe09a2b7cd/">Malware Bazaar</a> via Google dorking the IoC: <code>intext:"rilaer.com/IfAmGZIJjbwzvKNTxSPM/ixcxmzcvqi"</code>
 </details>
 
 <br>
