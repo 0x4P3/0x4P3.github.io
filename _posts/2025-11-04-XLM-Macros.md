@@ -181,7 +181,7 @@ Found signature in [Malware Bazaar]() via Google dorking the IoC: `"`
   <summary>Show Answer</summary>
   <code>dridex</code>
   <br>
-  Found signature in <a href="https://bazaar.abuse.ch/sample/7103c9d1c2a64b80a4b69e3d91487b602fd4ede836722fa9c0daf4fe09a2b7cd/">Malware Bazaar</a> via Google dorking the IoC: <code>intext:"rilaer.com/IfAmGZIJjbwzvKNTxSPM/ixcxmzcvqi</code>
+  Found signature in via Google dorking the IoC: <code>intext:"rilaer.com/IfAmGZIJjbwzvKNTxSPM/ixcxmzcvqi</code>
 </details>
 
 <br>
