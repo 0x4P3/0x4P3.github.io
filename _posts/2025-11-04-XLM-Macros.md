@@ -21,7 +21,7 @@ tags: [cyberdefenders]
 - Zip size: 74 KB
 
 **Scenario**  
-Recently, we have seen a resurgence of Excel-based malicous office documents. Howerver, instead of using VBA-style macros, they are using older style Excel 4 macros. This changes our approach to analyzing these documents, requiring a slightly different set of tools. In this challenge, you, as a security blue team analyst will get hands-on with two documents that use Excel 4.0 macros to perform anti-analysis and download the next stage of the attack.
+Recently, we have seen a resurgence of Excel-based malicous office documents. However, instead of using VBA-style macros, they are using older style Excel 4 macros. This changes our approach to analyzing these documents, requiring a slightly different set of tools. In this challenge, you, as a security blue team analyst will get hands-on with two documents that use Excel 4.0 macros to perform anti-analysis and download the next stage of the attack.
 
 **Samples**
 - Sample1: MD5: fb5ed444ddc37d748639f624397cff2a
