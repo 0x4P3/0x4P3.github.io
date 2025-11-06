@@ -271,7 +271,9 @@ $ olevba sample2-b5d469a07709b5ca6fee934b1e5e8e38.bin
 
 At J727, it calls `ShellExecuteA` to executes `reg.exe` and exports the `HKCU\Software\Microsoft\Office\GET.WORKSPACE(2)\Excel\Security` to `c:\users\public\1.reg`. 
 - The [GET.WORKSPACE(2)](https://malware.news/t/excel-4-macros-get-workspace-reference/38892) returns the Microsoft Excel version.
+
 At J729, It opens the exported `1.reg` file. 
+
 At J734, it searches for `0x0001` value inside the exported `1.reg` file. 
 - If it found it, it exits.
 - Otherwise, it jumps to J1.
@@ -279,13 +281,21 @@ At J734, it searches for `0x0001` value inside the exported `1.reg` file.
 Checking the `olevba` output summary, we can see the `VBAWarnings` registry key. The above check `0x0001` corresponds to `VBAWarnings = 1` (all macros enable), which is common in sandbox environment.
 
 At J1, it checks if the workspace width is more than 770 by calling [GET.WORKSPACE(13)](https://malware.news/t/excel-4-macros-get-workspace-reference/38892), otherwise it exits.
+
 At J2, it checks if the workspace height is more than 381 by calling [GET.WORKSPACE(14)](https://malware.news/t/excel-4-macros-get-workspace-reference/38892), otherwise it exits.
+
 At J4, it checks if a mouse is preset by calling [GET.WORKSPACE(19)](https://malware.news/t/excel-4-macros-get-workspace-reference/38892), otherwise it exits.
+
 At J5, it checks if the computer can play sound by calling [GET.WORKSPACE(42)](https://malware.news/t/excel-4-macros-get-workspace-reference/38892), otherwise it exits.
+
 At J6, it checks if the environment running is Windows by calling [GET.WORKSPACE(1)](https://malware.news/t/excel-4-macros-get-workspace-reference/38892) and checking the `Windows` string, otherwise it exits.
+
 At J7, it calls `URLDownloadToFileA` to download next stager from `https://ethelenecrace.xyz/fbb3` and save it as `c:\Users\Public\bmjn5ef.html`.
-At cell J8, it shows an error message `The workbook cannot be opened or repaired by Microsoft Excel because it's corrupt`.
-At cell J9, it calls `ShellExecuteA` to executes `rundll32.exe`, which  executes the downloaded `1bmjn5ef.html` with the `DLLRegisterServer` export function. The use of `rundll32.exe` with export function `DLLRegisterServer` indicates the downloaded next stager `1bmjn5ef.html` is a DLL.
+
+At J8, it shows an error message `The workbook cannot be opened or repaired by Microsoft Excel because it's corrupt`.
+
+At J9, it calls `ShellExecuteA` to executes `rundll32.exe`, which  executes the downloaded `1bmjn5ef.html` with the `DLLRegisterServer` export function. The use of `rundll32.exe` with export function `DLLRegisterServer` indicates the downloaded next stager `1bmjn5ef.html` is a DLL.
+
 At J11, it hides the `CSHykdYHvi` sheet by calling `WORKBOOK.HIDE()`.
 
 <br>
