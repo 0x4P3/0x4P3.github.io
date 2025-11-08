@@ -114,13 +114,15 @@ The output revealed 3 streams that contains macros :
 - Stream 9 (`Macros/VBA/ThisDocument`) marked with `m`, indicating macro with user form. 
 - Stream 17 (`ObjectPool/_1541577328/\x01Ole10Native`) marked with `O`, indicating embedded OLE object.
 
-Lets use `oledump` again to dump the macro code. The dumped output VB script is beautified.
+Lets use `oledump` again to dump the macro code. 
 
 ```bash
 oledump.py -s 8 -v 49b367ac261a722a7c2bbbc328c32545 
+```
 
-Attribute VB_Name = "Module1"
+The dumped VBA macro is beautified and shown below:
 
+``` vb
 Public OBKHLrC3vEDjVL As String
 Public B8qen2T433Ds1bW As String
 
