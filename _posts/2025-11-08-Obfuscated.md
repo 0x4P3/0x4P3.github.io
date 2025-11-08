@@ -232,7 +232,7 @@ This suggests that it uses the marker to identify and extract the next stager pa
 - At line 66, it calls `Q7JOhn5pIl648L6V43V()` function with two arguments: extracted payload `Wk4o3X7x1134j()` and payload size (`KDXl18qY4rcT + 1`) arguments. At line 61, the `KDXl18qY4rcT` is assigned `16827`. So the total payload size is `16828`.
 - The `Q7JOhn5pIl648L6V43V()` function performs XOR operation, where initial XOR key `THQNfU76nlSbtJ5nX8LY6` is 45. Each byte of extracted payload is XOR'd with current key. And, the key is updated for each byte as: 
 
-	`THQNfU76nlSbtJ5nX8LY6 = ((THQNfU76nlSbtJ5nX8LY6 Xor 99) Xor (i Mod 254))
+	`THQNfU76nlSbtJ5nX8LY6 = ((THQNfU76nlSbtJ5nX8LY6 Xor 99) Xor (i Mod 254))`
 
 This decrypts the extracted payload via XOR operation.
 
