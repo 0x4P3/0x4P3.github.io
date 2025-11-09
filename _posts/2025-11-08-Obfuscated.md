@@ -878,6 +878,20 @@ function FXx9(Z_3F, VMd7) {
 }
 ```
 
+Following is high level analysis summary on what the code does from start to end:
+- It grabs the current username to generate a random ID in `TfOh()` function.
+- It checks in order if the following writable directory exits in `Blgx()` function:
+
+```
+C:\Users\<UserName>\AppData\Local\Microsoft\
+C:\Users\<UserName>\AppData\Local\Temp
+C:\Documents and Settings\<UserName>\Application Data\Microsoft\Windows\
+```
+
+- The `rGcR()` function copies the running script into the chosen writable directory with filename modification, and sleeps for a random short time. Then it calls `ev_C()` function to create a Windows Scheduled Task named `TaskManager` for persistence that triggers on logon, which will execute the copied script with the argument `EzZETcSXyKAdF_e5I2i1`.
+- The `Fv6b()` function executes a list of commands stored as Array under `auME` variable to collect system and network information. The collected information is written to `dat.tmp` file in the chosen writable directory. 
+- It calls `FXx9()` function to encrypts that file via RC4 encryption using hardcoded key `2f532d6baec3d0ec7b1f98aed4774843`.
+- The `jSm8()` function loops through the hardcoded C2 URL stored as Array under `CKpR` variable. For each C2 URL, the `XEWG()` function sends the collected information file via POST request.
 
 <br>
 
