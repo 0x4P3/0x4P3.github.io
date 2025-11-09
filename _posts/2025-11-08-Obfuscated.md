@@ -883,6 +883,147 @@ function FXx9(Z_3F, VMd7) {
 
 ## Questions:
 
+**What is the SHA256 hash of the DOC file?**
+<details>
+  <summary>Show Answer</summary>
+  <code>ff2c8cadaa0fd8da6138cce6fce37e001f53a5d9ceccd67945b15ae273f4d751</code>
+</details>
+
+<br>
+
+**Multiple streams contain macros in this document. Provide the number of the lowest one.**
+<details>
+  <summary>Show Answer</summary>
+  <code>8</code>
+</details>
+
+<br>
+
+**What is the decryption key of the obfuscated code?**
+<details>
+  <summary>Show Answer</summary>
+  <code>EzZETcSXyKAdF_e5I2i1</code>
+</details>
+
+<br>
+
+**What is the name of the dropped file?**
+<details>
+  <summary>Show Answer</summary>
+  <code>maintools.js</code>
+</details>
+
+<br>
+
+**This script uses what language?**
+<details>
+  <summary>Show Answer</summary>
+  <code>JScript</code>
+</details>
+
+<br>
+
+**What is the name of the variable that is assigned the command-line arguments?**
+<details>
+  <summary>Show Answer</summary>
+  <code>wvy1</code>
+</details>
+
+<br>
+
+**How many command-line arguments does this script expect?**
+<details>
+  <summary>Show Answer</summary>
+  <code>1</code>
+</details>
+
+<br>
+
+**What instruction is executed if this script encounters an error?**
+<details>
+  <summary>Show Answer</summary>
+  <code>WScript.Quit()</code>
+</details>
+
+<br>
+
+**What function returns the next stage of code (i.e. the first round of obfuscated code)?**
+<details>
+  <summary>Show Answer</summary>
+  <code>y3zb</code>
+</details>
+
+<br>
+
+**The function LXv5 is important, what variable is assigned a key string value in determining what this function does?**
+<details>
+  <summary>Show Answer</summary>
+  <code>LUK7</code>
+</details>
+
+<br>
+
+**What encoding scheme is this function responsible for decoding?**
+<details>
+  <summary>Show Answer</summary>
+  <code>Base64</code>
+</details>
+
+<br>
+
+**In the function CpPT, the first two for() loops are responsible for what important part of this function?**
+<details>
+  <summary>Show Answer</summary>
+  <code>Key-scheduling algorithm</code>
+</details>
+
+<br>
+
+**The function CpPT requires two arguments, where does the value of the first argument come from?**
+<details>
+  <summary>Show Answer</summary>
+  <code>command-line argument</code>
+</details>
+
+<br>
+
+**For the function CpPT, what does the first argument represent?**
+<details>
+  <summary>Show Answer</summary>
+  <code>key</code>
+</details>
+
+<br>
+
+**What encryption algorithm does the function CpPT implement in this script?**
+<details>
+  <summary>Show Answer</summary>
+  <code>RC4</code>
+</details>
+
+<br>
+
+**What function is responsible for executing the deobfuscated code?**
+<details>
+  <summary>Show Answer</summary>
+  <code>Eval</code>
+</details>
+
+<br>
+
+**What Windows Script Host program can be used to execute this script in command-line mode?**
+<details>
+  <summary>Show Answer</summary>
+  <code>cscript.exe</code>
+</details>
+
+<br>
+
+**What is the name of the first function defined in the deobfuscated code?**
+<details>
+  <summary>Show Answer</summary>
+  <code>UspD</code>
+</details>
 
 <br>
 
