@@ -9,20 +9,20 @@ tags: [android malware]
 
 ---
 
-## Overview
+## **Overview**
 Salvador stealer is an android banking trojan that embeds phishing page inside the application to trick victims into entering sensitive information, which is exfiltrated over Telegram. Additionally, it intercepts SMS messages to capture OTP and verification codes. These SMS contents are exfiltrated either via SMS forwarding mechanisms or HTTP POST requests. It has also implemented multiple persistence techniques.
 
 <br>
 
-## Infection Chain
+## **Infection Chain**
 
 ![Infection Chain](/images/2026-06-27-Salvador_Stealer/1.png)
 
 <br>
 
-## Technical Analysis
+## **Technical Analysis**
 
-### Initial Stager
+### <font color = "blue">Initial Stager</font>
 
 name: `INDUSLND_BANK_E_KYC.apk` 
 
@@ -83,7 +83,7 @@ After committing the installation request, it registers a callback mechanism to 
 
 <br>
 
-### Payload
+### <font color = "blue">Payload</font>
 
 name: `base.apk` 
 
