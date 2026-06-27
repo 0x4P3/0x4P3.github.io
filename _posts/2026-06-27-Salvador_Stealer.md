@@ -239,6 +239,21 @@ The JavaScript hooks `XMLHttpRequest.prototype.send()`, so whenever the loaded p
 
 Following this, it calls `initiateForegroundServiceIfRequired()` method that launches `Fitzgerald.class` as a foreground service. Before that, it checks for `RECEIVE_SMS` and `SEND_SMS` permissions by calling `hasNecessaryPermissions()`. If these permissions are missing, the victim is prompted again to grant permission by calling `requestAppPermissions()`.
 
-![initiateForegroundServiceIfRequired()](/images/2026-06-27-Salvador_Stealer/13.png)
+![initiateForegroundServiceIfRequired()](/images/2026-06-27-Salvador_Stealer/14.png)
+
+<br>
 
 #### Fitzgerald.java
+
+During initialization, it first sets up a foreground service notification channel by calling `createNotificationChannelIfNeeded()`. It then dynamically registers`Earnestine` as a broadcast receiver for `android.provider.Telephony.SMS_RECEIVED` intent, allowing it to intercept all incoming SMS messages on the device. Finally, the service runs in the foreground using `startForeground()`.
+
+![onCreate()](/images/2026-06-27-Salvador_Stealer/15.png)
+
+Before investigating `Earnestine`, there is one interesting persistence mechanism. If the service is removed or destroyed, either via `onTaskRemoved()` or `onDestroy()` respectively, it schedules a background task using Android's WorkManager framework executing `Mauricio` worker.
+
+![persistence](/images/2026-06-27-Salvador_Stealer/16.png)
+
+<br>
+
+#### Mauricio.java
+
