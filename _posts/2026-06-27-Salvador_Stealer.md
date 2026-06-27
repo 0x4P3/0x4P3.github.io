@@ -91,7 +91,7 @@ sha256: `7950cc61688a5bddbce3cb8e7cd6bec47eee9e38da3210098f5a5c20b39fb6d8`
 
 package name: `com.deer.lion`
 
-#### AndroidManifest.xml
+#### <font color = "purple">AndroidManifest.xml</font>
 
 After the dropper successfully installs the payload, execution is transferred to `com.deer.lion`. To understand the capabilities and execution flow of the payload, `AndroidManifest.xml` was checked that revealed following interesting artifacts: 
 The presence of `MAIN` action identifies `Helene` as entry point: 
@@ -160,7 +160,7 @@ Also, it incorporates Android's WorkManager components through AndroidX startup 
     </provider>
 ```
 
-#### Helene.java
+#### <font color = "purple">Helene.java</font>
 
 Lets now start the analysis following the execution flow beginning with the `Helene` activity that will transfer execution to its `onCreate()` method.
 
@@ -235,7 +235,7 @@ Following this, it calls `initiateForegroundServiceIfRequired()` method that lau
 
 ![initiateForegroundServiceIfRequired()](/images/2026-06-27-Salvador_Stealer/14.png)
 
-#### Fitzgerald.java
+#### <font color = "purple">Fitzgerald.java</font>
 
 During initialization, it first sets up a foreground service notification channel by calling `createNotificationChannelIfNeeded()`. It then dynamically registers`Earnestine` as a broadcast receiver for `android.provider.Telephony.SMS_RECEIVED` intent, allowing it to intercept all incoming SMS messages on the device. Finally, the service runs in the foreground using `startForeground()`.
 
@@ -245,13 +245,13 @@ Before investigating `Earnestine`, there is one interesting persistence mechanis
 
 ![persistence](/images/2026-06-27-Salvador_Stealer/16.png)
 
-#### Mauricio.java
+#### <font color = "purple">Mauricio.java</font>
 
 Within its `doWork()` method, it calls `Adolfo()` method that relaunches `Fitzgerald` service. This ensure persistence SMS interception even after termination attempts.
 
 ![doWork()](/images/2026-06-27-Salvador_Stealer/17.png)
 
-#### Earnestine.java
+#### <font color = "purple">Earnestine.java</font>
 
 Now, returning to `Earnestine`. Whenever the device receives a new SMS message, Android broadcasts the `android.provider.Telephony.SMS_RECEIVED` intent, that triggers `Earnestine.onReceive()`. 
 
@@ -271,7 +271,7 @@ Lets analyze the second exfiltration method `Randall()`, that also executes asyn
 
 ![Randall()](/images/2026-06-27-Salvador_Stealer/21.png)
 
-#### Ellsworth.java
+#### <font color = "purple">Ellsworth.java</font>
 
 An additional persistence mechanism is defined in the `AndroidManifest.xml` through `Ellsworth` broadcast receiver that listens for`android.intent.action.BOOT_COMPLETED` event, as previously mentioned above. Upon receiving this broadcast, when device finishes rebooting, it relaunches the `Fitzgerald` service.  
 
