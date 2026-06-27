@@ -257,3 +257,33 @@ Before investigating `Earnestine`, there is one interesting persistence mechanis
 
 #### Mauricio.java
 
+Within its `doWork()` method, it calls `Adolfo()` method that relaunches `Fitzgerald` service. This ensure persistence SMS interception even after termination attempts.
+
+![doWork()](/images/2026-06-27-Salvador_Stealer/17.png)
+
+#### Earnestine.java
+
+Now, returning to `Earnestine`. Whenever the device receives a new SMS message, Android broadcasts the `android.provider.Telephony.SMS_RECEIVED` intent, that triggers `Earnestine.onReceive()`. 
+
+The receiver first verifies the received broadcast and then extracts the SMS Protocol Data Units (PDU), which contains the raw SMS data. For maximum combability, it supports decoding both `3gpp` and `3gpp2` message formats. After decoding the PDUs, it extracts message body, sender id, and timestamp, which are passed to `euwhdjeh()` method for further processing.  
+
+![onReceive()](/images/2026-06-27-Salvador_Stealer/18.png)
+
+Inside `euwhdjeh()` method, it reconstructs SMS message by combining message fragments. After reconstruction, it passes those values to `Salvador()` method, which invokes `Bradford()` and `Randall()` methods, that exfiltrates the stolen SMS message over SMS forwarding mechanism and HTTP POST request respectively. The dual-channel exfiltration method increases likelihood that stolen SMS message reaches threat actor, even if one of exfiltration path fails.
+
+![euwhdjeh()](/images/2026-06-27-Salvador_Stealer/19.png)
+
+Lets analyze the first exfiltration method `Bradford()`, that executes asynchronously using an `ExecutorService`. It contacts a remote server `https://t15.muletipushpa.cloud/json/number.php` to retrieve forwarding phone number dynamically. After receiving the forwarding number, the stolen SMS is forwarded to that number via `sendSMS()` method. 
+
+![Bradford()](/images/2026-06-27-Salvador_Stealer/20.png)
+
+Lets analyze the second exfiltration method `Randall()`, that also executes asynchronously using `ExecutorService`. It exfiltrates the stolen SMS message over an HTTP POST request to `https://t15.muletipushpa.cloud/post.php`.
+
+![Randall()](/images/2026-06-27-Salvador_Stealer/21.png)
+
+#### Ellsworth.java
+An additional persistence mechanism is defined in the `AndroidManifest.xml` through `Ellsworth` broadcast receiver that listens for`android.intent.action.BOOT_COMPLETED` event, as previously mentioned above. Upon receiving this broadcast, when device finishes rebooting, it relaunches the `Fitzgerald` service.  
+
+![Ellsworth](/images/2026-06-27-Salvador_Stealer/22.png)
+
+---
