@@ -7,6 +7,8 @@ categories: [Android Malware, Banking Trojan]
 tags: [android malware]
 ---
 
+---
+
 ## Overview
 Salvador stealer is an android banking trojan that embeds phishing page inside the application to trick victims into entering sensitive information, which is exfiltrated over Telegram. Additionally, it intercepts SMS messages to capture OTP and verification codes. These SMS contents are exfiltrated either via SMS forwarding mechanisms or HTTP POST requests. It has also implemented multiple persistence techniques.
 
@@ -29,8 +31,6 @@ sha256: `21504d3f2f3c8d8d231575ca25b4e7e0871ad36ca6bbb825bf7f12bfc3b00f5a`
 package name: `com.indusvalley.appinstall`
 
 The infection chain begins with the `INDUSLND_BANK_E_KYC.apk`, which impersonates a legitimate IndusInd Bank mobile banking application. However, the analysis reveals it to be a dropper that installs and executes the payload APK. 
-
-<br>
 
 #### AndroidManifest.xml
 
@@ -55,8 +55,6 @@ Next, the `IndusKimkc` is the main and launcher activity that will be executed w
     ...
 </activity>
 ```
-
-<br>
 
 #### IndusKimkc.java
 
@@ -92,8 +90,6 @@ name: `base.apk`
 sha256: `7950cc61688a5bddbce3cb8e7cd6bec47eee9e38da3210098f5a5c20b39fb6d8` 
 
 package name: `com.deer.lion`
-
-<br>
 
 #### AndroidManifest.xml
 
@@ -163,8 +159,6 @@ Also, it incorporates Android's WorkManager components through AndroidX startup 
         android:value="androidx.startup"/>
     </provider>
 ```
-
-<br>
 
 #### Helene.java
 
@@ -241,8 +235,6 @@ Following this, it calls `initiateForegroundServiceIfRequired()` method that lau
 
 ![initiateForegroundServiceIfRequired()](/images/2026-06-27-Salvador_Stealer/14.png)
 
-<br>
-
 #### Fitzgerald.java
 
 During initialization, it first sets up a foreground service notification channel by calling `createNotificationChannelIfNeeded()`. It then dynamically registers`Earnestine` as a broadcast receiver for `android.provider.Telephony.SMS_RECEIVED` intent, allowing it to intercept all incoming SMS messages on the device. Finally, the service runs in the foreground using `startForeground()`.
@@ -253,15 +245,11 @@ Before investigating `Earnestine`, there is one interesting persistence mechanis
 
 ![persistence](/images/2026-06-27-Salvador_Stealer/16.png)
 
-<br>
-
 #### Mauricio.java
 
 Within its `doWork()` method, it calls `Adolfo()` method that relaunches `Fitzgerald` service. This ensure persistence SMS interception even after termination attempts.
 
 ![doWork()](/images/2026-06-27-Salvador_Stealer/17.png)
-
-<br>
 
 #### Earnestine.java
 
@@ -283,11 +271,12 @@ Lets analyze the second exfiltration method `Randall()`, that also executes asyn
 
 ![Randall()](/images/2026-06-27-Salvador_Stealer/21.png)
 
-<br>
-
 #### Ellsworth.java
+
 An additional persistence mechanism is defined in the `AndroidManifest.xml` through `Ellsworth` broadcast receiver that listens for`android.intent.action.BOOT_COMPLETED` event, as previously mentioned above. Upon receiving this broadcast, when device finishes rebooting, it relaunches the `Fitzgerald` service.  
 
 ![Ellsworth](/images/2026-06-27-Salvador_Stealer/22.png)
+
+<br>
 
 ---
