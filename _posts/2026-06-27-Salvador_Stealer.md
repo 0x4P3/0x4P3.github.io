@@ -261,6 +261,8 @@ Within its `doWork()` method, it calls `Adolfo()` method that relaunches `Fitzge
 
 ![doWork()](/images/2026-06-27-Salvador_Stealer/17.png)
 
+<br>
+
 #### Earnestine.java
 
 Now, returning to `Earnestine`. Whenever the device receives a new SMS message, Android broadcasts the `android.provider.Telephony.SMS_RECEIVED` intent, that triggers `Earnestine.onReceive()`. 
@@ -280,6 +282,8 @@ Lets analyze the first exfiltration method `Bradford()`, that executes asynchron
 Lets analyze the second exfiltration method `Randall()`, that also executes asynchronously using `ExecutorService`. It exfiltrates the stolen SMS message over an HTTP POST request to `https://t15.muletipushpa.cloud/post.php`.
 
 ![Randall()](/images/2026-06-27-Salvador_Stealer/21.png)
+
+<br>
 
 #### Ellsworth.java
 An additional persistence mechanism is defined in the `AndroidManifest.xml` through `Ellsworth` broadcast receiver that listens for`android.intent.action.BOOT_COMPLETED` event, as previously mentioned above. Upon receiving this broadcast, when device finishes rebooting, it relaunches the `Fitzgerald` service.  

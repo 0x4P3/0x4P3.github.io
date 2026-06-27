@@ -1,7 +1,7 @@
 ---
 layout:	post
 title:  "AD Post-Attacks: Ticket-Stealing Attacks"
-date:   2026-07-25 11:11:11 +0200
+date:   2027-07-25 11:11:11 +0200
 categories: [Active Directory]
 tags: [Active Directory]
 ---

@@ -1,7 +1,7 @@
 ---
 layout:	post
 title:  "AD: Kerberos Authentication"
-date:   2026-07-16 11:11:11 +0200
+date:   2027-07-16 11:11:11 +0200
 categories: [Active Directory]
 tags: [Active Directory]
 ---
