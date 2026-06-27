@@ -24,11 +24,11 @@ Salvador stealer is an android banking trojan that embeds phishing page inside t
 
 ### <font color = "red">Initial Stager</font>
 
-***name***: `INDUSLND_BANK_E_KYC.apk` 
+**name**: `INDUSLND_BANK_E_KYC.apk` 
 
-***sha256***: `21504d3f2f3c8d8d231575ca25b4e7e0871ad36ca6bbb825bf7f12bfc3b00f5a` 
+**sha256**: `21504d3f2f3c8d8d231575ca25b4e7e0871ad36ca6bbb825bf7f12bfc3b00f5a` 
 
-***package name***: `com.indusvalley.appinstall`
+**package name**: `com.indusvalley.appinstall`
 
 The infection chain begins with the `INDUSLND_BANK_E_KYC.apk`, which impersonates a legitimate IndusInd Bank mobile banking application. However, the analysis reveals it to be a dropper that installs and executes the payload APK. 
 
@@ -85,11 +85,11 @@ After committing the installation request, it registers a callback mechanism to 
 
 ### <font color = "red">Payload</font>
 
-name: `base.apk` 
+**name**: `base.apk` 
 
-sha256: `7950cc61688a5bddbce3cb8e7cd6bec47eee9e38da3210098f5a5c20b39fb6d8` 
+**sha256**: `7950cc61688a5bddbce3cb8e7cd6bec47eee9e38da3210098f5a5c20b39fb6d8` 
 
-package name: `com.deer.lion`
+**package name**: `com.deer.lion`
 
 #### <font color = "purple">AndroidManifest.xml</font>
 
