@@ -22,7 +22,7 @@ Salvador stealer is an android banking trojan that embeds phishing page inside t
 
 ## **Technical Analysis**
 
-### <font color = "blue">Initial Stager</font>
+### <font color = "red">Initial Stager</font>
 
 name: `INDUSLND_BANK_E_KYC.apk` 
 
@@ -32,7 +32,7 @@ package name: `com.indusvalley.appinstall`
 
 The infection chain begins with the `INDUSLND_BANK_E_KYC.apk`, which impersonates a legitimate IndusInd Bank mobile banking application. However, the analysis reveals it to be a dropper that installs and executes the payload APK. 
 
-#### AndroidManifest.xml
+#### <font color = "yellow">AndroidManifest.xml</font>
 
 Loading the `INDUSLND_BANK_E_KYC.apk` into JADX and reviewing the `AndroidManifest.xml` immediately revealed several interesting artifacts:  
 The application requests the `REQUEST_INSTALL_PACKAGES` permission, which allows it to prompt victims to install the payload APK.
@@ -83,7 +83,7 @@ After committing the installation request, it registers a callback mechanism to 
 
 <br>
 
-### <font color = "blue">Payload</font>
+### <font color = "red">Payload</font>
 
 name: `base.apk` 
 
